@@ -1,91 +1,44 @@
-﻿import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from 'next/server';
+import { buildPolicy } from '@/lib/generator/policy-builder';
+import type { PolicyGenerationRequest } from '@/lib/types';
 
-function getCategoryCode(category: string) {
-  const map: Record<string, string> = {
-    Governance: "GOV",
-    Risk: "RISK",
-    Compliance: "COMP",
-    "Information Security": "INFOSEC",
-    "IT Governance": "ITG",
-    "Human Resources": "HR",
-    Operations: "OPS",
-    Finance: "FIN",
-    "Internal Audit": "AUDIT",
-    Administration: "ADMIN",
-  }
-  return map[category] ?? "GEN"
-}
-
-type GeneratePolicyRequest = {
-  category: string
-  title: string
-  purpose?: string
-  department?: string
-  frameworks?: string[]
-}
-
-export async function POST(req: Request) {
+export async function POST(request: NextRequest) {
   try {
-    const body = (await req.json()) as GeneratePolicyRequest
-    const category = body.category?.trim() || "Governance"
-    const title = body.title?.trim() || "Untitled Policy"
-    const purpose = body.purpose?.trim() || ""
-    const department = body.department?.trim() || ""
-    const frameworks = Array.isArray(body.frameworks) ? body.frameworks : []
+    const body = await request.json();
+    const { category, title, description, frameworks, department } = body;
 
-    const markdown = `# ${title}
+    // Validate required fields
+    if (!category || !title || !description) {
+      return NextResponse.json(
+        { success: false, error: 'Missing required fields: category, title, description' },
+        { status: 400 }
+      );
+    }
 
-**Policy Code:** POL-${getCategoryCode(category)}-XXX  
-**Category:** ${category}  
-**Owner Department:** ${department || "TBD"}  
-**Effective Date:** ${new Date().toISOString().slice(0, 10)}  
-**Version:** 1.0  
+    // Build policy request
+    const policyRequest: PolicyGenerationRequest = {
+      category,
+      title,
+      purpose: description,
+      department: department || 'TBD',
+      frameworks: frameworks || []
+    };
 
----
+    // Generate policy from structured data
+    const result = await buildPolicy(policyRequest);
 
-## 1. Purpose
-${purpose || "Define the purpose of this policy."}
+    return NextResponse.json({
+      success: true,
+      policy: result.markdown,
+      metadata: result.metadata,
+      controls: result.controls
+    });
 
-## 2. Scope
-Define the scope (systems, people, processes, locations, branches).
-
-## 3. Framework Alignment
-This policy supports the following frameworks:
-${frameworks.length ? frameworks.map((f) => `- ${f}`).join("\n") : "- TBD"}
-
-## 4. Roles & Responsibilities
-- **Author:** TBD
-- **Reviewer:** TBD
-- **Approver:** TBD
-- **Policy Owner:** ${department || "TBD"}
-
-## 5. Policy Requirements
-1) Requirement statement 1  
-2) Requirement statement 2  
-3) Requirement statement 3  
-
-## 6. Monitoring & Compliance
-- Evidence collection method: tickets, logs, approvals, reports.
-- Review cadence: quarterly or as required.
-
-## 7. Non-Compliance
-Non-compliance may result in corrective action as per HR/disciplinary process.
-
-## 8. Related Documents
-- Standards / Procedures: TBD
-- Records / Templates: TBD
-
-## 9. Revision History
-| Version | Date | Description | Author | Approver |
-|---|---|---|---|---|
-| 1.0 | ${new Date().toISOString().slice(0, 10)} | Initial release | TBD | TBD |
-`
-
-    return NextResponse.json({ ok: true, markdown })
-  } catch (err: any) {
+  } catch (error: any) {
+    console.error('Error generating policy:', error);
     return NextResponse.json(
-      { ok: false, error: err?.message ?? "Unknown error" },
-      { status: 400 }
-    )
+      { success: false, error: error.message || 'Failed to generate policy' },
+      { status: 500 }
+    );
   }
 }

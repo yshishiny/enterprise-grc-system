@@ -1,0 +1,222 @@
+{
+  "$schema": "./schema.json",
+  "version": "1.0",
+  "lastUpdated": "2026-02-17",
+  "controls": [
+    {
+      "id": "AC-001",
+      "code": "AC.1",
+      "title": "User Authentication & Identity Verification",
+      "description": "All users must be uniquely identified and authenticated before accessing organizational systems and data",
+      "category": "Access Control",
+      "objective": "Ensure only authorized users can access systems through verified identity",
+      "evidenceRequired": [
+        "Authentication logs (30-day retention)",
+        "User access reports (quarterly)",
+        "MFA configuration evidence",
+        "Identity verification procedures"
+      ],
+      "testingFrequency": "Quarterly",
+      "owner": "IT Department",
+      "priority": "P0",
+      "mappings": [
+        {
+          "framework": "ISO27001",
+          "controlId": "A.9.2.1",
+          "controlCode": "A.9.2.1",
+          "relationship": "implements"
+        },
+        {
+          "framework": "NIST_800_53",
+          "controlId": "IA-2",
+          "controlCode": "IA-2",
+          "relationship": "implements"
+        },
+        {
+          "framework": "NIST_CSF",
+          "controlId": "PR.AC-1",
+          "controlCode": "PR.AC-1",
+          "relationship": "supports"
+        },
+        {
+          "framework": "COBIT",
+          "controlId": "DSS05.04",
+          "controlCode": "DSS05.04",
+          "relationship": "related"
+        },
+        {
+          "framework": "FRA",
+          "controlId": "FRA-Law227-Art15",
+          "controlCode": "Law 227/Art.15",
+          "relationship": "implements"
+        }
+      ],
+      "relatedPolicies": ["POL-INFOSEC-001", "POL-ITG-002"]
+    },
+    {
+      "id": "RM-001",
+      "code": "RM.1",
+      "title": "Risk Assessment Process",
+      "description": "Conduct comprehensive risk assessments to identify, analyze, and evaluate risks to business objectives",
+      "category": "Risk Management",
+      "objective": "Systematically identify and prioritize organizational risks",
+      "evidenceRequired": [
+        "Risk assessment reports (annual)",
+        "Risk register",
+        "Risk treatment plans",
+        "Board risk review minutes"
+      ],
+      "testingFrequency": "Annual",
+      "owner": "Risk Department",
+      "priority": "P0",
+      "mappings": [
+        {
+          "framework": "ISO27001",
+          "controlId": "A.5.7",
+          "controlCode": "A.5.7",
+          "relationship": "implements"
+        },
+        {
+          "framework": "NIST_CSF",
+          "controlId": "ID.RA-1",
+          "controlCode": "ID.RA-1",
+          "relationship": "implements"
+        },
+        {
+          "framework": "COBIT",
+          "controlId": "APO12.01",
+          "controlCode": "APO12.01",
+          "relationship": "implements"
+        },
+        {
+          "framework": "FRA",
+          "controlId": "FRA-Law227-Art8",
+          "controlCode": "Law 227/Art.8",
+          "relationship": "supports"
+        }
+      ],
+      "relatedPolicies": ["POL-RISK-001"]
+    },
+    {
+      "id": "GV-001",
+      "code": "GV.1",
+      "title": "Board Oversight & Governance Structure",
+      "description": "Board of Directors provides oversight and sets strategic direction with defined governance structure",
+      "category": "Governance & Board",
+      "objective": "Ensure effective oversight and strategic governance by the Board",
+      "evidenceRequired": [
+        "Board charter",
+        "Board meeting minutes (quarterly)",
+        "Committee charters",
+        "Director independence declarations"
+      ],
+      "testingFrequency": "Annual",
+      "owner": "Board of Directors",
+      "priority": "P0",
+      "mappings": [
+        {
+          "framework": "COBIT",
+          "controlId": "EDM01.01",
+          "controlCode": "EDM01.01",
+          "relationship": "implements"
+        },
+        {
+          "framework": "NIST_CSF",
+          "controlId": "ID.GV-1",
+          "controlCode": "ID.GV-1",
+          "relationship": "supports"
+        },
+        {
+          "framework": "FRA",
+          "controlId": "FRA-Law227-Art5",
+          "controlCode": "Law 227/Art.5",
+          "relationship": "implements"
+        }
+      ],
+      "relatedPolicies": ["POL-GOV-001", "POL-GOV-002"]
+    },
+    {
+      "id": "CM-001",
+      "code": "CM.1",
+      "title": "Regulatory Compliance Monitoring",
+      "description": "Monitor and ensure compliance with applicable laws, regulations, and contractual obligations",
+      "category": "Compliance & Regulatory",
+      "objective": "Maintain compliance with regulatory requirements",
+      "evidenceRequired": [
+        "Compliance monitoring reports (quarterly)",
+        "Regulatory correspondence",
+        "Compliance training records",
+        "Audit findings and remediation"
+      ],
+      "testingFrequency": "Quarterly",
+      "owner": "Compliance Department",
+      "priority": "P0",
+      "mappings": [
+        {
+          "framework": "ISO27001",
+          "controlId": "A.5.31",
+          "controlCode": "A.5.31",
+          "relationship": "implements"
+        },
+        {
+          "framework": "COBIT",
+          "controlId": "MEA03.01",
+          "controlCode": "MEA03.01",
+          "relationship": "implements"
+        },
+        {
+          "framework": "FRA",
+          "controlId": "FRA-Law227-General",
+          "controlCode": "Law 227/General",
+          "relationship": "implements"
+        }
+      ],
+      "relatedPolicies": ["POL-COMP-001"]
+    },
+    {
+      "id": "DR-001",
+      "code": "DR.1",
+      "title": "Disaster Recovery & Business Continuity",
+      "description": "Maintain and test disaster recovery and business continuity plans to ensure operational resilience",
+      "category": "Operations",
+      "objective": "Ensure business operations can continue during and after disruptive events",
+      "evidenceRequired": [
+        "Disaster recovery plan",
+        "Business continuity plan",
+        "DR test results (annual)",
+        "Recovery time/point objectives",
+        "Backup verification logs"
+      ],
+      "testingFrequency": "Annual",
+      "owner": "IT Department",
+      "priority": "P0",
+      "mappings": [
+        {
+          "framework": "ISO27001",
+          "controlId": "A.5.29",
+          "controlCode": "A.5.29",
+          "relationship": "implements"
+        },
+        {
+          "framework": "NIST_800_53",
+          "controlId": "CP-2",
+          "controlCode": "CP-2",
+          "relationship": "implements"
+        },
+        {
+          "framework": "NIST_CSF",
+          "controlId": "RC.RP-1",
+          "controlCode": "RC.RP-1",
+          "relationship": "supports"
+        },
+        {
+          "framework": "COBIT",
+          "controlId": "DSS04.01",
+          "controlCode": "DSS04.01",
+          "relationship": "related"
+        }
+      ],
+      "relatedPolicies": ["POL-OPS-001", "POL-INFOSEC-003"]
+    }
+  ]
+}
