@@ -1,5 +1,4 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+﻿@import "tailwindcss";
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
@@ -166,3 +165,5 @@
     padding 0.2s ease,
     margin 0.2s ease;
 }
+
+
