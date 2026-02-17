@@ -1,0 +1,701 @@
+{
+  "framework": "ISO 27001",
+  "version": "2022",
+  "fullName": "Information Security Management System",
+  "annexAControls": [
+    {
+      "category": "5. Organizational Controls",
+      "controls": [
+        {
+          "id": "5.1",
+          "name": "Policies for information security",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 90
+        },
+        {
+          "id": "5.2",
+          "name": "Information security roles and responsibilities",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "5.3",
+          "name": "Segregation of duties",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "5.4",
+          "name": "Management responsibilities",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 85
+        },
+        {
+          "id": "5.5",
+          "name": "Contact with authorities",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 80
+        },
+        {
+          "id": "5.6",
+          "name": "Contact with special interest groups",
+          "implemented": false,
+          "maturity": 2,
+          "completionPct": 40
+        },
+        {
+          "id": "5.7",
+          "name": "Threat intelligence",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 65
+        },
+        {
+          "id": "5.8", 
+          "name": "Information security in project management",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "5.9",
+          "name": "Inventory of information and other associated assets",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 85
+        },
+        {
+          "id": "5.10",
+          "name": "Acceptable use of information and other associated assets",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "5.11",
+          "name": "Return of assets",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 80
+        },
+        {
+          "id": "5.12",
+          "name": "Classification of information",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "5.13",
+          "name": "Labelling of information",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 65
+        },
+        {
+          "id": "5.14",
+          "name": "Information transfer",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "5.15",
+          "name": "Access control",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 85
+        },
+        {
+          "id": "5.16",
+          "name": "Identity management",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 90
+        },
+        {
+          "id": "5.17",
+          "name": "Authentication information",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 88
+        },
+        {
+          "id": "5.18",
+          "name": "Access rights",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 80
+        },
+        {
+          "id": "5.19",
+          "name": "Information security in supplier relationships",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "5.20",
+          "name": "Addressing information security within supplier agreements",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "5.21",
+          "name": "Managing information security in the ICT supply chain",
+          "implemented": false,
+          "maturity": 2,
+          "completionPct": 45
+        },
+        {
+          "id": "5.22",
+          "name": "Monitoring, review and change management of supplier services",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 65
+        },
+        {
+          "id": "5.23",
+          "name": "Information security for use of cloud services",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "5.24",
+          "name": "Information security incident management planning and preparation",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "5.25",
+          "name": "Assessment and decision on information security events",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "5.26",
+          "name": "Response to information security incidents",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "5.27",
+          "name": "Learning from information security incidents",
+          "implemented": false,
+          "maturity": 2,
+          "completionPct": 50
+        },
+        {
+          "id": "5.28",
+          "name": "Collection of evidence",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 65
+        },
+        {
+          "id": "5.29",
+          "name": "Information security during disruption",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "5.30",
+          "name": "ICT readiness for business continuity",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "5.31",
+          "name": "Legal, statutory, regulatory and contractual requirements",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 85
+        },
+        {
+          "id": "5.32",
+          "name": "Intellectual property rights",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 80
+        },
+        {
+          "id": "5.33",
+          "name": "Protection of records",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "5.34",
+          "name": "Privacy and protection of PII",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "5.35",
+          "name": "Independent review of information security",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "5.36",
+          "name": "Compliance with policies, rules and standards for information security",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 80
+        },
+        {
+          "id": "5.37",
+          "name": "Documented operating procedures",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        }
+      ],
+      "totalControls": 37,
+      "implementedControls": 34,
+      "avgMaturity": 3.2,
+      "completionPct": 73
+    },
+    {
+      "category": "6. People Controls",
+      "controls": [
+        {
+          "id": "6.1",
+          "name": "Screening",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 80
+        },
+        {
+          "id": "6.2",
+          "name": "Terms and conditions of employment",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 90
+        },
+        {
+          "id": "6.3",
+          "name": "Information security awareness, education and training",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "6.4",
+          "name": "Disciplinary process",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 80
+        },
+        {
+          "id": "6.5",
+          "name": "Responsibilities after termination or change of employment",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "6.6",
+          "name": "Confidentiality or non-disclosure agreements",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 85
+        },
+        {
+          "id": "6.7",
+          "name": "Remote working",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "6.8",
+          "name": "Information security event reporting",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        }
+      ],
+      "totalControls": 8,
+      "implementedControls": 8,
+      "avgMaturity": 3.4,
+      "completionPct": 79
+    },
+    {
+      "category": "7. Physical Controls",
+      "controls": [
+        {
+          "id": "7.1",
+          "name": "Physical security perimeters",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "7.2",
+          "name": "Physical entry",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 85
+        },
+        {
+          "id": "7.3",
+          "name": "Securing offices, rooms and facilities",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "7.4",
+          "name": "Physical security monitoring",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 80
+        },
+        {
+          "id": "7.5",
+          "name": "Protecting against physical and environmental threats",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "7.6",
+          "name": "Working in secure areas",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "7.7",
+          "name": "Clear desk and clear screen",
+          "implemented": true,
+          "maturity": 2,
+          "completionPct": 60
+        },
+        {
+          "id": "7.8",
+          "name": "Equipment siting and protection",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "7.9",
+          "name": "Security of assets off-premises",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 65
+        },
+        {
+          "id": "7.10",
+          "name": "Storage media",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "7.11",
+          "name": "Supporting utilities",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "7.12",
+          "name": "Cabling security",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "7.13",
+          "name": "Equipment maintenance",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 80
+        },
+        {
+          "id": "7.14",
+          "name": "Secure disposal or re-use of equipment",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        }
+      ],
+      "totalControls": 14,
+      "implementedControls": 14,
+      "avgMaturity": 3.0,
+      "completionPct": 73
+    },
+    {
+      "category": "8. Technological Controls",
+      "controls": [
+        {
+          "id": "8.1",
+          "name": "User endpoint devices",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "8.2",
+          "name": "Privileged access rights",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 85
+        },
+        {
+          "id": "8.3",
+          "name": "Information access restriction",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 80
+        },
+        {
+          "id": "8.4",
+          "name": "Access to source code",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "8.5",
+          "name": "Secure authentication",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 90
+        },
+        {
+          "id": "8.6",
+          "name": "Capacity management",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "8.7",
+          "name": "Protection against malware",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 95
+        },
+        {
+          "id": "8.8",
+          "name": "Management of technical vulnerabilities",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 80
+        },
+        {
+          "id": "8.9",
+          "name": "Configuration management",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "8.10",
+          "name": "Information deletion",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "8.11",
+          "name": "Data masking",
+          "implemented": false,
+          "maturity": 2,
+          "completionPct": 40
+        },
+        {
+          "id": "8.12",
+          "name": "Data leakage prevention",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 65
+        },
+        {
+          "id": "8.13",
+          "name": "Information backup",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 90
+        },
+        {
+          "id": "8.14",
+          "name": "Redundancy of information processing facilities",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "8.15",
+          "name": "Logging",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "8.16",
+          "name": "Monitoring activities",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "8.17",
+          "name": "Clock synchronization",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 95
+        },
+        {
+          "id": "8.18",
+          "name": "Use of privileged utility programs",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "8.19",
+          "name": "Installation of software on operational systems",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 80
+        },
+        {
+          "id": "8.20",
+          "name": "Networks security",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 85
+        },
+        {
+          "id": "8.21",
+          "name": "Security of network services",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "8.22",
+          "name": "Segregation of networks",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "8.23",
+          "name": "Web filtering",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 80
+        },
+        {
+          "id": "8.24",
+          "name": "Use of cryptography",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        },
+        {
+          "id": "8.25",
+          "name": "Secure development life cycle",
+          "implemented": false,
+          "maturity": 2,
+          "completionPct": 50
+        },
+        {
+          "id": "8.26",
+          "name": "Application security requirements",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 65
+        },
+        {
+          "id": "8.27",
+          "name": "Secure system architecture and engineering principles",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 60
+        },
+        {
+          "id": "8.28",
+          "name": "Secure coding",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 65
+        },
+        {
+          "id": "8.29",
+          "name": "Security testing in development and acceptance",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "8.30",
+          "name": "Outsourced development",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 60
+        },
+        {
+          "id": "8.31",
+          "name": "Separation of development, test and production environments",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 85
+        },
+        {
+          "id": "8.32",
+          "name": "Change management",
+          "implemented": true,
+          "maturity": 4,
+          "completionPct": 90
+        },
+        {
+          "id": "8.33",
+          "name": "Test information",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 70
+        },
+        {
+          "id": "8.34",
+          "name": "Protection of information systems during audit testing",
+          "implemented": true,
+          "maturity": 3,
+          "completionPct": 75
+        }
+      ],
+      "totalControls": 34,
+      "implementedControls": 32,
+      "avgMaturity": 3.2,
+      "completionPct": 74
+    }
+  ],
+  "summary": {
+    "totalControls": 93,
+    "implementedControls": 88,
+    "notImplementedControls": 5,
+    "avgMaturity": 3.2,
+    "overallCompletion": 75
+  }
+}

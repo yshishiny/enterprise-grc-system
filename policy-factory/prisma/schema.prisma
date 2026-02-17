@@ -1,0 +1,148 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// User & Role Management (Mock AD)
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  department String
+  adGroups  String   // Comma-separated AD groups
+  role      String   // System role (Reader, Contributor, Owner, etc.)
+  
+  documentsOwned    Document[] @relation("DocumentOwner")
+  approvals         WorkflowAction[]
+  createdExceptions Exception[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Core Document Entity
+model Document {
+  id                String   @id @default(uuid())
+  documentNo        String   @unique // e.g., POL-GRC-001
+  title             String
+  type              String   // Policy, Procedure, Form, etc.
+  version           String   @default("0.1")
+  status            String   // Draft, UnderReview, Approved, Obsolete
+  
+  departmentOwner   String
+  scope             String   // Enterprise, Department, Branch
+  confidentiality   String   @default("Internal")
+  
+  issueDate         DateTime?
+  effectiveDate     DateTime?
+  reviewDate        DateTime?
+  
+  // Content
+  content           String   // Markdown or JSON content
+  pageCount         Int?
+  
+  // Relations
+  ownerId           String
+  owner             User     @relation("DocumentOwner", fields: [ownerId], references: [id])
+  
+  workflowInstances WorkflowInstance[]
+  controls          Control[]
+  exceptions        Exception[]
+  
+  // Metadata Tags
+  tags              String?   // JSON string of tags (activity, risk_domain)
+  
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+// Workflow Engine
+model WorkflowInstance {
+  id           String   @id @default(uuid())
+  documentId   String
+  document     Document @relation(fields: [documentId], references: [id])
+  
+  workflowName String   // e.g., Policy_Enterprise_Default
+  currentStage String   // e.g., GRC_Review
+  status       String   // Active, Completed, Rejected
+  
+  actions      WorkflowAction[]
+  
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model WorkflowAction {
+  id                 String   @id @default(uuid())
+  workflowInstanceId String
+  workflowInstance   WorkflowInstance @relation(fields: [workflowInstanceId], references: [id])
+  
+  actorId            String
+  actor              User     @relation(fields: [actorId], references: [id])
+  
+  stage              String
+  action             String   // Approve, Reject, RequestChanges
+  comment            String?
+  
+  timestamp          DateTime @default(now())
+}
+
+// Governance & Controls
+model Control {
+  id               String   @id @default(uuid())
+  controlId        String   @unique // e.g., CTRL-IT-001
+  title            String
+  type             String   // Preventive, Detective, Corrective
+  frequency        String   // Annual, Monthly, etc.
+  
+  ownerRole        String
+  evidenceRequired String   // Description of required evidence
+  
+  documentId       String?
+  document         Document? @relation(fields: [documentId], references: [id])
+  
+  evidenceSubmissions Evidence[]
+  
+  kpiDefinition    String?  // JSON
+  
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Evidence {
+  id          String   @id @default(uuid())
+  controlId   String
+  control     Control  @relation(fields: [controlId], references: [id])
+  
+  period      String   // e.g., 2024-Q1
+  status      String   // Submitted, Accepted, Rejected
+  attachmentUrl String?
+  
+  submittedBy String
+  reviewedBy  String?
+  
+  submittedAt DateTime @default(now())
+  reviewedAt  DateTime?
+}
+
+model Exception {
+  id             String   @id @default(uuid())
+  documentId     String?
+  document       Document? @relation(fields: [documentId], references: [id])
+  
+  justification  String
+  expiryDate     DateTime
+  status         String   // Active, Expired, Approved
+  
+  requesterId    String
+  requester      User     @relation(fields: [requesterId], references: [id])
+  
+  createdAt      DateTime @default(now())
+}

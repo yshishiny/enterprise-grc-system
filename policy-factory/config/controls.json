@@ -1,0 +1,103 @@
+{
+  "controls": [
+    {
+      "id": "CTRL-CRD-001",
+      "title": "اكتمال المستندات قبل اللجنة",
+      "type": "Preventive",
+      "frequency": "Per Transaction",
+      "domain": "Commercial",
+      "document": "PROC-CRD-001",
+      "kpi": { "name": "First Time Right Documents %", "formula": "Files passed AFU / Total Files * 100", "target": ">= 95%" }
+    },
+    {
+      "id": "CTRL-CRD-002",
+      "title": "I-SCORE حد أدنى 626 وحداثة شهر الإصدار",
+      "type": "Preventive",
+      "frequency": "Per Transaction",
+      "domain": "Commercial",
+      "document": "PROC-CRD-001",
+      "kpi": { "name": "I-SCORE Compliance %", "formula": "Compliant Files / Total Files * 100", "target": "100%" }
+    },
+    {
+      "id": "CTRL-CRD-003",
+      "title": "الالتزام بشرائح ومحددات المنتج",
+      "type": "Preventive",
+      "frequency": "Per Transaction",
+      "domain": "Commercial",
+      "document": "POL-CRD-003",
+      "kpi": { "name": "Product Limit Violations", "formula": "Count of Non-compliant records", "target": "0" }
+    },
+    {
+      "id": "CTRL-CRD-004",
+      "title": "فصل المهام & موافقة لجنة حسب DOA",
+      "type": "Preventive",
+      "frequency": "Per Transaction",
+      "domain": "Commercial",
+      "document": "POL-CRD-002",
+      "kpi": { "name": "DOA Compliance %", "formula": "Decisions within DOA / Total Decisions * 100", "target": "100%" }
+    },
+    {
+      "id": "CTRL-CRD-005",
+      "title": "عدم الصرف قبل AFU وقائمة الصرف",
+      "type": "Preventive",
+      "frequency": "Per Transaction",
+      "domain": "Operations",
+      "document": "POL-OPS-001",
+      "kpi": { "name": "Unauthorized Disbursements", "formula": "Disbursements without AFU list", "target": "0" }
+    },
+    {
+      "id": "CTRL-COMM-01",
+      "title": "محاضر قرارات مرقمة وموقعة",
+      "type": "Preventive",
+      "frequency": "Per Transaction",
+      "domain": "Commercial",
+      "document": "PROC-CRD-002",
+      "kpi": { "name": "Meeting Minutes Completion %", "formula": "Signed Minutes / Total Meetings * 100", "target": "100%" }
+    },
+    {
+      "id": "CTRL-AFU-01",
+      "title": "مطابقة I-SCORE + مستندات + توقيعات",
+      "type": "Preventive",
+      "frequency": "Per Transaction",
+      "domain": "Operations",
+      "document": "PROC-OPS-001",
+      "kpi": { "name": "AFU Rejection Rate", "formula": "Rejections due to clarity / Total AFU Reviews", "target": "Decreasing" }
+    },
+    {
+      "id": "CTRL-AML-01",
+      "title": "فحص قوائم الحظر قبل التعاقد",
+      "type": "Preventive",
+      "frequency": "Per Transaction",
+      "domain": "AML",
+      "document": "PROC-AML-001",
+      "kpi": { "name": "AML Screening Check %", "formula": "Screened Files / Total Files * 100", "target": "100%" }
+    },
+    {
+      "id": "CTRL-CUS-01",
+      "title": "الإفصاح المكتوب قبل التوقيع",
+      "type": "Preventive",
+      "frequency": "Per Transaction",
+      "domain": "Compliance",
+      "document": "POL-COM-001",
+      "kpi": { "name": "Disclosure Statement Compliance %", "formula": "Files with signed disclosure / Total", "target": "100%" }
+    },
+    {
+      "id": "CTRL-FIN-01",
+      "title": "Dual Control للتحويل",
+      "type": "Preventive",
+      "frequency": "Per Transaction",
+      "domain": "Finance",
+      "document": "PROC-FIN-001",
+      "kpi": { "name": "Dual Authorization Compliance %", "formula": "Authorized Transfers / Total", "target": "100%" }
+    },
+    {
+      "id": "CTRL-PRT-01",
+      "title": "اعتماد داخلي للقوائم قبل البنك/الهيئة (Offloading)",
+      "type": "Preventive",
+      "frequency": "Weekly",
+      "domain": "Partnerships",
+      "document": "PROC-PRT-001",
+      "kpi": { "name": "Internal Approval Rate", "formula": "Internally Approved / Total Tranches", "target": "100%" }
+    }
+  ]
+}

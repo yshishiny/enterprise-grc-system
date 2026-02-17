@@ -1,0 +1,252 @@
+{
+  "framework": "NIST CSF",
+  "version": "1.1",
+  "fullName": "NIST Cybersecurity Framework",
+  "functions": [
+    {
+      "id": "ID",
+      "name": "Identify",
+      "description": "Develop organizational understanding to manage cybersecurity risk",
+      "categories": [
+        {
+          "id": "ID.AM",
+          "name": "Asset Management",
+          "controls": 6,
+          "implemented": 5,
+          "maturity": 4,
+          "completionPct": 83
+        },
+        {
+          "id": "ID.BE",
+          "name": "Business Environment",
+          "controls": 5,
+          "implemented": 4,
+         "maturity": 3,
+          "completionPct": 80
+        },
+        {
+          "id": "ID.GV",
+          "name": "Governance",
+          "controls": 4,
+          "implemented": 4,
+          "maturity": 4,
+          "completionPct": 100
+        },
+        {
+          "id": "ID.RA",
+          "name": "Risk Assessment",
+          "controls": 6,
+          "implemented": 5,
+          "maturity": 4,
+          "completionPct": 83
+        },
+        {
+          "id": "ID.RM",
+          "name": "Risk Management Strategy",
+          "controls": 3,
+          "implemented": 3,
+          "maturity": 4,
+          "completionPct": 100
+        },
+        {
+          "id": "ID.SC",
+          "name": "Supply Chain Risk Management",
+          "controls": 5,
+          "implemented": 3,
+          "maturity": 2,
+          "completionPct": 60
+        }
+      ],
+      "totalControls": 29,
+      "implementedControls": 24,
+      "avgMaturity": 3.5,
+      "completionPct": 83
+    },
+    {
+      "id": "PR",
+      "name": "Protect",
+      "description": "Develop and implement appropriate safeguards",
+      "categories": [
+        {
+          "id": "PR.AC",
+          "name": "Identity Management and Access Control",
+          "controls": 7,
+          "implemented": 6,
+          "maturity": 4,
+          "completionPct": 86
+        },
+        {
+          "id": "PR.AT",
+          "name": "Awareness and Training",
+          "controls": 5,
+          "implemented": 4,
+          "maturity": 3,
+          "completionPct": 80
+        },
+        {
+          "id": "PR.DS",
+          "name": "Data Security",
+          "controls": 8,
+          "implemented": 7,
+          "maturity": 4,
+          "completionPct": 88
+        },
+        {
+          "id": "PR.IP",
+          "name": "Information Protection Processes",
+          "controls": 12,
+          "implemented": 10,
+          "maturity": 3,
+          "completionPct": 83
+        },
+        {
+          "id": "PR.MA",
+          "name": "Maintenance",
+          "controls": 2,
+          "implemented": 2,
+          "maturity": 4,
+          "completionPct": 100
+        },
+        {
+          "id": "PR.PT",
+          "name": "Protective Technology",
+          "controls": 5,
+          "implemented": 4,
+          "maturity": 3,
+          "completionPct": 80
+        }
+      ],
+      "totalControls": 39,
+      "implementedControls": 33,
+      "avgMaturity": 3.5,
+      "completionPct": 85
+    },
+    {
+      "id": "DE",
+      "name": "Detect",
+      "description": "Develop and implement activities to identify cybersecurity events",
+      "categories": [
+        {
+          "id": "DE.AE",
+          "name": "Anomalies and Events",
+          "controls": 5,
+          "implemented": 4,
+          "maturity": 3,
+          "completionPct": 80
+        },
+        {
+          "id": "DE.CM",
+          "name": "Security Continuous Monitoring",
+          "controls": 8,
+          "implemented": 5,
+          "maturity": 3,
+          "completionPct": 63
+        },
+        {
+          "id": "DE.DP",
+          "name": "Detection Processes",
+          "controls": 5,
+          "implemented": 3,
+          "maturity": 2,
+          "completionPct": 60
+        }
+      ],
+      "totalControls": 18,
+      "implementedControls": 12,
+      "avgMaturity": 2.7,
+      "completionPct": 67
+    },
+    {
+      "id": "RS",
+      "name": "Respond",
+      "description": "Develop and implement activities regarding detected cybersecurity event",
+      "categories": [
+        {
+          "id": "RS.RP",
+          "name": "Response Planning",
+          "controls": 1,
+          "implemented": 1,
+          "maturity": 4,
+          "completionPct": 100
+        },
+        {
+          "id": "RS.CO",
+          "name": "Communications",
+          "controls": 5,
+          "implemented": 4,
+          "maturity": 3,
+          "completionPct": 80
+        },
+        {
+          "id": "RS.AN",
+          "name": "Analysis",
+          "controls": 5,
+          "implemented": 3,
+          "maturity": 2,
+          "completionPct": 60
+        },
+        {
+          "id": "RS.MI",
+          "name": "Mitigation",
+          "controls": 3,
+          "implemented": 2,
+          "maturity": 3,
+          "completionPct": 67
+        },
+        {
+          "id": "RS.IM",
+          "name": "Improvements",
+          "controls": 2,
+          "implemented": 1,
+          "maturity": 2,
+          "completionPct": 50
+        }
+      ],
+      "totalControls": 16,
+      "implementedControls": 11,
+      "avgMaturity": 2.8,
+      "completionPct": 69
+    },
+    {
+      "id": "RC",
+      "name": "Recover",
+      "description": "Develop and implement activities to maintain resilience",
+      "categories": [
+        {
+          "id": "RC.RP",
+          "name": "Recovery Planning",
+          "controls": 1,
+          "implemented": 1,
+          "maturity": 3,
+          "completionPct": 100
+        },
+        {
+          "id": "RC.IM",
+          "name": "Improvements",
+          "controls": 2,
+          "implemented": 1,
+          "maturity": 2,
+          "completionPct": 50
+        },
+        {
+          "id": "RC.CO",
+          "name": "Communications",
+          "controls": 3,
+          "implemented": 2,
+          "maturity": 3,
+          "completionPct": 67
+        }
+      ],
+      "totalControls": 6,
+      "implementedControls": 4,
+      "avgMaturity": 2.7,
+      "completionPct": 67
+    }
+  ],
+  "summary": {
+    "totalControls": 108,
+    "implementedControls": 84,
+    "avgMaturity": 3.1,
+    "overallCompletion": 78
+  }
+}

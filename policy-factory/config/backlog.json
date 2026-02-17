@@ -1,0 +1,44 @@
+{
+  "priorities": {
+    "P0": [
+      { "code": "POL-CRD-001", "title": "السياسة الائتمانية العامة لمنح التمويل", "domain": "Commercial", "type": "Policy" },
+      { "code": "PROC-CRD-001", "title": "إجراءات منح التمويل", "domain": "Commercial", "type": "Procedure" },
+      { "code": "POL-CRD-002", "title": "سياسة لجان المنح وحدود الصلاحيات (DOA)", "domain": "Commercial", "type": "Policy" },
+      { "code": "PROC-CRD-002", "title": "إجراءات إدارة اجتماعات اللجان والقرارات", "domain": "Commercial", "type": "Procedure" },
+      { "code": "POL-OPS-001", "title": "سياسة المراجعة المركزية قبل الصرف (AFU) وضمان الجودة", "domain": "Operations", "type": "Policy" },
+      { "code": "PROC-OPS-001", "title": "إجراءات الفحص والمطابقة المركزية", "domain": "Operations", "type": "Procedure" },
+      { "code": "POL-CRD-003", "title": "سياسة المنتجات وشرائح التمويل ومحددات الصرف", "domain": "Commercial", "type": "Policy" },
+      { "code": "PROC-CRD-003", "title": "إجراءات اختيار المنتج والشريحة وتوثيق المبررات", "domain": "Commercial", "type": "Procedure" },
+      { "code": "POL-AML-001", "title": "سياسة AML/CFT + KYC + قوائم الحظر + التصعيد", "domain": "AML", "type": "Policy" },
+      { "code": "PROC-AML-001", "title": "إجراءات KYC وفحص القوائم", "domain": "AML", "type": "Procedure" },
+      { "code": "POL-COM-001", "title": "سياسة حماية المتعاملين والإفصاح والشكاوى", "domain": "Compliance", "type": "Policy" },
+      { "code": "PROC-COM-001", "title": "إجراءات الشكاوى", "domain": "Compliance", "type": "Procedure" },
+      { "code": "POL-FIN-001", "title": "سياسة الصرف والتحويل الإلكتروني للتمويل", "domain": "Finance", "type": "Policy" },
+      { "code": "PROC-FIN-001", "title": "إجراءات التحويل بناءً على قائمة الصرف", "domain": "Finance", "type": "Procedure" },
+      { "code": "POL-FIN-002", "title": "سياسة المخصصات والديون المشكوك في تحصيلها", "domain": "Finance", "type": "Policy" },
+      { "code": "PROC-FIN-002", "title": "إجراءات احتساب ومراجعة المخصصات", "domain": "Finance", "type": "Procedure" }
+    ],
+    "P1": [
+      { "code": "POL-RSK-001", "title": "سياسة إدارة مخاطر الائتمان ومؤشرات الإنذار المبكر", "domain": "Risk", "type": "Policy" },
+      { "code": "PROC-RSK-001", "title": "إجراءات التقارير الشهرية وإيقاف الإصدار", "domain": "Risk", "type": "Procedure" },
+      { "code": "POL-AUD-001", "title": "سياسة التدقيق الداخلي وخطة التدقيق القائمة على المخاطر", "domain": "Audit", "type": "Policy" },
+      { "code": "PROC-AUD-001", "title": "إجراءات تنفيذ المهمات وإدارة الملاحظات", "domain": "Audit", "type": "Procedure" },
+      { "code": "POL-ADM-SEC-001", "title": "سياسة أمن الفروع والمقر وحماية الأصول", "domain": "Admin/Security", "type": "Policy" },
+      { "code": "PROC-ADM-SEC-001", "title": "إجراءات إدارة الدخول والسجلات", "domain": "Admin/Security", "type": "Procedure" },
+      { "code": "POL-LEG-001", "title": "سياسة الدعاوى القضائية والأعباء القانونية", "domain": "Legal", "type": "Policy" },
+      { "code": "PROC-LEG-001", "title": "إجراءات رفع الدعاوى وتأمين المستندات", "domain": "Legal", "type": "Procedure" }
+    ],
+    "P2": [
+      { "code": "POL-HR-001", "title": "سياسة الهيكل التنظيمي والتدرج الوظيفي", "domain": "HR", "type": "Policy" },
+      { "code": "PROC-HR-001", "title": "إجراءات إدارة الهيكل والتحديث", "domain": "HR", "type": "Procedure" },
+      { "code": "POL-HR-002", "title": "سياسة التوظيف والتعيين وفتح ملف الموظف", "domain": "HR", "type": "Policy" },
+      { "code": "PROC-HR-002", "title": "إجراءات التوظيف من طلب الاحتياج حتى التعيين", "domain": "HR", "type": "Procedure" },
+      { "code": "POL-PRC-001", "title": "سياسة المشتريات وإدارة الموردين وتعارض المصالح", "domain": "Purchasing", "type": "Policy" },
+      { "code": "PROC-PRC-001", "title": "إجراءات دورة الشراء", "domain": "Purchasing", "type": "Procedure" },
+      { "code": "POL-CEO-001", "title": "سياسة إدارة القرارات والتفويضات", "domain": "CEO Office", "type": "Policy" },
+      { "code": "PROC-CEO-001", "title": "إجراءات إصدار القرار ومتابعة التنفيذ", "domain": "CEO Office", "type": "Procedure" },
+      { "code": "POL-PRT-001", "title": "سياسة إدارة اتفاقيات الـOffloading/البنوك", "domain": "Partnerships", "type": "Policy" },
+      { "code": "PROC-PRT-001", "title": "إجراء تنفيذ عقد تمويل بشرائح دورية", "domain": "Partnerships", "type": "Procedure" }
+    ]
+  }
+}

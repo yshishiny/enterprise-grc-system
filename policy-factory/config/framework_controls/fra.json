@@ -1,0 +1,137 @@
+{
+  "framework": "FRA",
+  "fullName": "Financial Regulatory Authority - Egypt",
+  "description": "Egyptian Financial Regulatory Authority compliance requirements for microfinance institutions",
+  "laws": [
+    {
+      "number": "139",
+      "year": "2014",
+      "title": "Microfinance Law 139/2014",
+      "description": "Regulating the establishment and operation of microfinance companies and associations",
+      "totalArticles": 45,
+      "compliantArticles": 29,
+      "completionPct": 64,
+      "keyRequirements": [
+        {
+          "article": "Article 5",
+          "requirement": "Minimum capital requirements",
+          "status": "Compliant",
+          "evidence": ["Capital adequacy report", "Board resolution"]
+        },
+        {
+          "article": "Article 12",
+          "requirement": "Governance structure and BOD composition",
+          "status": "Compliant",
+          "evidence": ["Board charter", "Member CVs"]
+        },
+        {
+          "article": "Article 18",
+          "requirement": "Risk management framework",
+          "status": "Compliant",
+          "evidence": ["Risk management policy", "Risk register"]
+        },
+        {
+          "article": "Article 22",
+          "requirement": "Internal audit function",
+          "status": "Compliant",
+          "evidence": ["Internal audit charter", "Audit reports"]
+        },
+        {
+          "article": "Article 28",
+          "requirement": "Client protection principles",
+          "status": "In Progress",
+          "evidence": ["Consumer protection policy (draft)"]
+        },
+        {
+          "article": "Article 35",
+          "requirement": "Financial reporting and disclosure",
+          "status": "Compliant",
+          "evidence": ["Audited financial statements", "Quarterly reports"]
+        }
+      ]
+    },
+    {
+      "number": "140",
+      "year": "2014",
+      "title": "Cooperative Law 140/2014",
+      "description": "Cooperative societies regulation and supervision",
+      "totalArticles": 32,
+      "compliantArticles": 23,
+      "completionPct": 72,
+      "keyRequirements": [
+        {
+          "article": "Article 7",
+          "requirement": "Member rights and responsibilities",
+          "status": "Compliant",
+          "evidence": ["Member bylaws", "Rights charter"]
+        },
+        {
+          "article": "Article 14",
+          "requirement": "General assembly governance",
+          "status": "Compliant",
+          "evidence": ["Assembly regulations", "Meeting minutes"]
+        },
+        {
+          "article": "Article 20",
+          "requirement": "Financial controls and reserves",
+          "status": "Compliant",
+          "evidence": ["Financial policies", "Reserve calculations"]
+        },
+        {
+          "article": "Article 25",
+          "requirement": "Transparency and disclosure to members",
+          "status": "In Progress",
+          "evidence": ["Disclosure framework (in development)"]
+        }
+      ]
+    },
+    {
+      "number": "227",
+      "year": "2020",
+      "title": "Consumer Protection Law 227/2020",
+      "description": "Consumer protection in financial services",
+      "totalArticles": 28,
+      "compliantArticles": 16,
+      "completionPct": 57,
+      "keyRequirements": [
+        {
+          "article": "Article 3",
+          "requirement": "Fair lending practices and transparency",
+          "status": "Compliant",
+          "evidence": ["Lending policy", "Disclosure forms"]
+        },
+        {
+          "article": "Article 8",
+          "requirement": "Complaint handling mechanism",
+          "status": "Compliant",
+          "evidence": ["Complaint procedure", "Tracking system"]
+        },
+        {
+          "article": "Article 12",
+          "requirement": "Data privacy and protection",
+          "status": "In Progress",
+          "evidence": ["Privacy policy (draft)", "Consent forms"]
+        },
+        {
+          "article": "Article 18",
+          "requirement": "Marketing and advertising standards",
+          "status": "Not Started",
+          "evidence": []
+        },
+        {
+          "article": "Article 24",
+          "requirement": "Resolution of disputes",
+          "status": "Compliant",
+          "evidence": ["Dispute resolution policy"]
+        }
+      ]
+    }
+  ],
+  "overallMetrics": {
+    "totalArticles": 105,
+    "compliantArticles": 68,
+    "inProgressArticles": 21,
+    "notStartedArticles": 16,
+    "overallCompletionPct": 65
+  }
+}

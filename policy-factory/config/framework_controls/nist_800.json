@@ -1,0 +1,174 @@
+{
+  "framework": "NIST 800-53",
+  "version": "Revision 5",
+  "fullName": "Security and Privacy Controls for Information Systems and Organizations",
+  "controlFamilies": [
+    {
+      "id": "AC",
+      "name": "Access Control",
+      "controls": 25,
+      "implemented": 18,
+      "maturity": 3,
+      "completionPct": 72
+    },
+    {
+      "id": "AT",
+      "name": "Awareness and Training",
+      "controls": 6,
+      "implemented": 5,
+      "maturity": 3,
+      "completionPct": 83
+    },
+    {
+      "id": "AU",
+      "name": "Audit and Accountability",
+      "controls": 16,
+      "implemented": 12,
+      "maturity": 3,
+      "completionPct": 75
+    },
+    {
+      "id": "CA",
+      "name": "Assessment, Authorization, and Monitoring",
+      "controls": 9,
+      "implemented": 6,
+      "maturity": 2,
+      "completionPct": 67
+    },
+    {
+      "id": "CM",
+      "name": "Configuration Management",
+      "controls": 14,
+      "implemented": 10,
+      "maturity": 3,
+      "completionPct": 71
+    },
+    {
+      "id": "CP",
+      "name": "Contingency Planning",
+      "controls": 13,
+      "implemented": 9,
+      "maturity": 3,
+      "completionPct": 69
+    },
+    {
+      "id": "IA",
+      "name": "Identification and Authentication",
+      "controls": 12,
+      "implemented": 10,
+      "maturity": 4,
+      "completionPct": 83
+    },
+    {
+      "id": "IR",
+      "name": "Incident Response",
+      "controls": 10,
+      "implemented": 7,
+      "maturity": 3,
+      "completionPct": 70
+    },
+    {
+      "id": "MA",
+      "name": "Maintenance",
+      "controls": 6,
+      "implemented": 5,
+      "maturity": 3,
+      "completionPct": 83
+    },
+    {
+      "id": "MP",
+      "name": "Media Protection",
+      "controls": 8,
+      "implemented": 6,
+      "maturity": 3,
+      "completionPct": 75
+    },
+    {
+      "id": "PE",
+      "name": "Physical and Environmental Protection",
+      "controls": 23,
+      "implemented": 15,
+      "maturity": 2,
+      "completionPct": 65
+    },
+    {
+      "id": "PL",
+      "name": "Planning",
+      "controls": 11,
+      "implemented": 8,
+      "maturity": 3,
+      "completionPct": 73
+    },
+    {
+      "id": "PS",
+      "name": "Personnel Security",
+      "controls": 9,
+      "implemented": 7,
+      "maturity": 3,
+      "completionPct": 78
+    },
+    {
+      "id": "PT",
+      "name": "PII Processing and Transparency",
+      "controls": 8,
+      "implemented": 4,
+      "maturity": 2,
+      "completionPct": 50
+    },
+    {
+      "id": "RA",
+      "name": "Risk Assessment",
+      "controls": 10,
+      "implemented": 8,
+      "maturity": 4,
+      "completionPct": 80
+    },
+    {
+      "id": "SA",
+      "name": "System and Services Acquisition",
+      "controls": 23,
+      "implemented": 12,
+      "maturity": 2,
+      "completionPct": 52
+    },
+    {
+      "id": "SC",
+      "name": "System and Communications Protection",
+      "controls": 51,
+      "implemented": 32,
+      "maturity": 3,
+      "completionPct": 63
+    },
+    {
+      "id": "SI",
+      "name": "System and Information Integrity",
+      "controls": 23,
+      "implemented": 16,
+      "maturity": 3,
+      "completionPct": 70
+    },
+    {
+      "id": "SR",
+      "name": "Supply Chain Risk Management",
+      "controls": 12,
+      "implemented": 6,
+      "maturity": 2,
+      "completionPct": 50
+    },
+    {
+      "id": "PM",
+      "name": "Program Management",
+      "controls": 16,
+      "implemented": 12,
+      "maturity": 3,
+      "completionPct": 75
+    }
+  ],
+  "summary": {
+    "totalFamilies": 20,
+    "totalControls": 325,
+    "implementedControls": 208,
+    "avgMaturity": 2.9,
+    "overallCompletion": 64
+  }
+}

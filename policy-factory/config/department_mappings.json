@@ -1,0 +1,129 @@
+{
+  "departments": [
+    {
+      "code": "IT",
+      "name": "Information Technology",
+      "description": "IT operations, infrastructure, and digital services",
+      "frameworks": ["COBIT", "NIST800", "NISTCSF", "ISO27001"],
+      "processes": [
+        { "id": "offload", "name": "Loan Offload Process", "policies": 4, "procedures": 8, "completion": 75 },
+        { "id": "callcenter", "name": "Call Center Operations", "policies": 3, "procedures": 6, "completion": 85 },
+        { "id": "lms", "name": "Loan Management System", "policies": 5, "procedures": 12, "completion": 60 },
+        { "id": "purchase", "name": "IT Purchase & Procurement", "policies": 2, "procedures": 5, "completion": 90 }
+      ],
+      "totalPolicies": 14,
+      "completedPolicies": 10,
+      "totalProcedures": 31,
+      "completedProcedures": 23,
+      "completionPct": 72,
+      "maturityLevel": 3.4,
+      "maturityTarget": 4.0
+    },
+    {
+      "code": "HR",
+      "name": "Human Resources",
+      "description": "Employee management, recruitment, and compliance",
+      "frameworks": ["FRA"],
+      "complianceAreas": [
+        { "id": "insurance", "name": "Insurance Compliance", "policies": 3, "completion": 100 },
+        { "id": "legal", "name": "Legal & Contracts", "policies": 5, "completion": 80 },
+        { "id": "labor", "name": "Labor Law Compliance", "policies": 4, "completion": 75 }
+      ],
+      "totalPolicies": 12,
+      "completedPolicies": 10,
+      "totalProcedures": 18,
+      "completedProcedures": 15,
+      "completionPct": 83,
+      "maturityLevel": 3.8,
+      "maturityTarget": 4.0
+    },
+    {
+      "code": "OPS",
+      "name": "Operations",
+      "description": "Operational processes and service delivery",
+      "frameworks": ["FRA", "ISO27001"],
+      "totalPolicies": 16,
+      "completedPolicies": 12,
+      "totalProcedures": 28,
+      "completedProcedures": 21,
+      "completionPct": 75,
+      "maturityLevel": 3.2,
+      "maturityTarget": 3.5
+    },
+    {
+      "code": "COM",
+      "name": "Commercial",
+      "description": "Sales, marketing, and customer relations",
+      "frameworks": ["FRA"],
+      "totalPolicies": 8,
+      "completedPolicies": 6,
+      "totalProcedures": 14,
+      "completedProcedures": 10,
+      "completionPct": 71,
+      "maturityLevel": 3.0,
+      "maturityTarget": 3.5
+    },
+    {
+      "code": "RISK",
+      "name": "Risk Management",
+      "description": "Enterprise risk management and assessment",
+      "frameworks": ["FRA", "ISO27001", "COBIT"],
+      "totalPolicies": 10,
+      "completedPolicies": 8,
+      "totalProcedures": 16,
+      "completedProcedures": 13,
+      "completionPct": 81,
+      "maturityLevel": 3.6,
+      "maturityTarget": 4.0
+    },
+    {
+      "code": "AUDIT",
+      "name": "Internal Audit",
+      "description": "Internal audit and compliance monitoring",
+      "frameworks": ["FRA", "COBIT"],
+      "totalPolicies": 6,
+      "completedPolicies": 5,
+      "totalProcedures": 12,
+      "completedProcedures": 10,
+      "completionPct": 83,
+      "maturityLevel": 3.7,
+      "maturityTarget": 4.0
+    },
+    {
+      "code": "BOD",
+      "name": "Board of Directors",
+      "description": "Board governance, meetings, and strategic decisions",
+      "frameworks": ["FRA"],
+      "totalPolicies": 8,
+      "completedPolicies": 7,
+      "totalProcedures": 10,
+      "completedProcedures": 9,
+      "completionPct": 89,
+      "maturityLevel": 4.2,
+      "maturityTarget": 4.5
+    },
+    {
+      "code": "ADMIN",
+      "name": "Administration",
+      "description": "Administrative services and facility management",
+      "frameworks": [],
+      "totalPolicies": 10,
+      "completedPolicies": 8,
+      "totalProcedures": 15,
+      "completedProcedures": 12,
+      "completionPct": 80,
+      "maturityLevel": 3.5,
+      "maturityTarget": 3.5
+    }
+  ],
+  "overallMetrics": {
+    "totalPolicies": 84,
+    "completedPolicies": 66,
+    "policyCompletionPct": 79,
+    "totalProcedures": 144,
+    "completedProcedures": 113,
+    "procedureCompletionPct": 78,
+    "overallMaturityLevel": 3.5,
+    "maturityTarget": 4.0
+  }
+}

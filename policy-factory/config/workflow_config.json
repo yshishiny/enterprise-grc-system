@@ -1,0 +1,316 @@
+{
+  "workflowStages": [
+    {
+      "id": "draft",
+      "name": "Draft",
+      "order": 1,
+      "color": "slate",
+      "description": "Document is being drafted by the author",
+      "allowedActions": ["submitForReview", "delete", "edit"],
+      "nextStages": ["review"]
+    },
+    {
+      "id": "review",
+      "name": "Under Review",
+      "order": 2,
+      "color": "blue",
+      "description": "Document is being reviewed by department head or subject matter expert",
+      "allowedActions": ["approve", "reject", "requestChanges"],
+      "nextStages": ["approval", "draft"],
+      "requiredRole": "reviewer"
+    },
+    {
+      "id": "approval",
+      "name": "Pending Approval",
+      "order": 3,
+      "color": "orange",
+      "description": "Document is pending approval from BOD or Executive Committee",
+      "allowedActions": ["approve", "reject", "requestChanges"],
+      "nextStages": ["published", "review"],
+      "requiredRole": "approver"
+    },
+    {
+      "id": "published",
+      "name": "Published",
+      "order": 4,
+      "color": "green",
+      "description": "Document is approved and published",
+      "allowedActions": ["archive", "revise"],
+      "nextStages": ["draft"]
+    },
+    {
+      "id": "archived",
+      "name": "Archived",
+      "order": 5,
+      "color": "gray",
+      "description": "Document has been archived or superseded",
+      "allowedActions": ["restore"],
+      "nextStages": ["draft"]
+    }
+  ],
+  "roles": [
+    {
+      "id": "author",
+      "name": "Author",
+      "permissions": ["create", "edit", "submitForReview", "delete"],
+      "description": "Can create and edit draft documents"
+    },
+    {
+      "id": "reviewer",
+      "name": "Reviewer",
+      "permissions": ["review", "approve", "reject", "requestChanges"],
+      "description": "Department heads and SMEs who review documents",
+      "departments": ["IT", "HR", "OPS", "COM", "RISK", "AUDIT", "FIN", "ADMIN"]
+    },
+    {
+      "id": "approver",
+      "name": "Approver",
+      "permissions": ["approve", "reject", "requestChanges", "publish"],
+      "description": "BOD and Executive Committee members",
+      "committees": ["Board of Directors", "Executive Committee", "Audit Committee", "Risk Committee"]
+    },
+    {
+      "id": "admin",
+      "name": "Administrator",
+      "permissions": ["all"],
+      "description": "System administrators with full access"
+    }
+  ],
+  "approvalRules": {
+    "governance": {
+      "category": "Governance & Board",
+      "reviewers": ["BOD"],
+      "approvers": ["Board of Directors"],
+      "requiredApprovals": 1,
+      "autoNotify": true
+    },
+    "risk": {
+      "category": "Risk Management",
+      "reviewers": ["RISK"],
+      "approvers": ["Risk Committee", "Executive Committee"],
+      "requiredApprovals": 1,
+      "autoNotify": true
+    },
+    "compliance": {
+      "category": "Compliance & Regulatory",
+      "reviewers": ["RISK", "Compliance"],
+      "approvers": ["Executive Committee"],
+      "requiredApprovals": 1,
+      "autoNotify": true
+    },
+    "infosec": {
+      "category": "Information Security",
+      "reviewers": ["IT", "RISK"],
+      "approvers": ["Executive Committee"],
+      "requiredApprovals": 1,
+      "autoNotify": true
+    },
+    "itGov": {
+      "category": "IT Governance",
+      "reviewers": ["IT"],
+      "approvers": ["Executive Committee"],
+      "requiredApprovals": 1,
+      "autoNotify": false
+    },
+    "hr": {
+      "category": "Human Resources",
+      "reviewers": ["HR"],
+      "approvers": ["Executive Committee"],
+      "requiredApprovals": 1,
+      "autoNotify": false
+    },
+    "operations": {
+      "category": "Operations",
+      "reviewers": ["OPS"],
+      "approvers": ["Executive Committee"],
+      "requiredApprovals": 1,
+      "autoNotify": false
+    },
+    "finance": {
+      "category": "Finance",
+      "reviewers": ["FIN"],
+      "approvers": ["Executive Committee"],
+      "requiredApprovals": 1,
+      "autoNotify": true
+    },
+    "audit": {
+      "category": "Audit",
+      "reviewers": ["AUDIT"],
+      "approvers": ["Audit Committee"],
+      "requiredApprovals": 1,
+      "autoNotify": true
+    },
+    "admin": {
+      "category": "Administration",
+      "reviewers": ["ADMIN"],
+      "approvers": ["Executive Committee"],
+      "requiredApprovals": 1,
+      "autoNotify": false
+    }
+  },
+  "sampleApprovals": [
+    {
+      "id": "APR-2026-001",
+      "documentCode": "POL-GOV-001",
+      "documentTitle": "Related Party Transactions Policy",
+      "category": "Governance & Board",
+      "currentStage": "approval",
+      "submittedBy": "Sarah Johnson",
+      "submittedDate": "2026-02-10",
+      "assignedTo": "Board of Directors",
+      "priority": "P1",
+      "dueDate": "2026-02-28",
+      "history": [
+        {
+          "stage": "draft",
+          "date": "2026-02-01",
+          "user": "Sarah Johnson",
+          "action": "Created"
+        },
+        {
+          "stage": "review",
+          "date": "2026-02-05",
+          "user": "Sarah Johnson",
+          "action": "Submitted for review"
+        },
+        {
+          "stage": "review",
+          "date": "2026-02-08",
+          "user": "Michael Chen",
+          "action": "Approved",
+          "comment": "Reviewed and approved. Aligns with FRA requirements."
+        },
+        {
+          "stage": "approval",
+          "date": "2026-02-10",
+          "user": "System",
+          "action": "Forwarded to BOD"
+        }
+      ]
+    },
+    {
+      "id": "APR-2026-002",
+      "documentCode": "POL-COMP-015",
+      "documentTitle": "Data Privacy Policy (GDPR Aligned)",
+      "category": "Compliance & Regulatory",
+      "currentStage": "review",
+      "submittedBy": "Ahmed Hassan",
+      "submittedDate": "2026-02-12",
+      "assignedTo": "Compliance Team",
+      "priority": "P0",
+      "dueDate": "2026-02-25",
+      "history": [
+        {
+          "stage": "draft",
+          "date": "2026-02-05",
+          "user": "Ahmed Hassan",
+          "action": "Created"
+        },
+        {
+          "stage": "review",
+          "date": "2026-02-12",
+          "user": "Ahmed Hassan",
+          "action": "Submitted for review"
+        }
+      ]
+    },
+    {
+      "id": "APR-2026-003",
+      "documentCode": "SOP-OPS-042",
+      "documentTitle": "Collections Recovery Procedure",
+      "category": "Operations",
+      "currentStage": "review",
+      "submittedBy": "Fatima Ali",
+      "submittedDate": "2026-02-14",
+      "assignedTo": "Operations Team",
+      "priority": "P2",
+      "dueDate": "2026-03-15",
+      "history": [
+        {
+          "stage": "draft",
+          "date": "2026-01-20",
+          "user": "Fatima Ali",
+          "action": "Created"
+        },
+        {
+          "stage": "review",
+          "date": "2026-02-14",
+          "user": "Fatima Ali",
+          "action": "Submitted for review"
+        }
+      ]
+    },
+    {
+      "id": "APR-2026-004",
+      "documentCode": "POL-RISK-008",
+      "documentTitle": "Market Risk Assessment Procedure",
+      "category": "Risk Management",
+      "currentStage": "approval",
+      "submittedBy": "David Martinez",
+      "submittedDate": "2026-02-11",
+      "assignedTo": "Risk Committee",
+      "priority": "P1",
+      "dueDate": "2026-03-01",
+      "history": [
+        {
+          "stage": "draft",
+          "date": "2026-01-15",
+          "user": "David Martinez",
+          "action": "Created"
+        },
+        {
+          "stage": "review",
+          "date": "2026-02-05",
+          "user": "David Martinez",
+          "action": "Submitted for review"
+        },
+        {
+          "stage": "review",
+          "date": "2026-02-09",
+          "user": "Jennifer Park",
+          "action": "Approved",
+          "comment": "Well-structured procedure. Ready for final approval."
+        },
+        {
+          "stage": "approval",
+          "date": "2026-02-11",
+          "user": "System",
+          "action": "Forwarded to Risk Committee"
+        }
+      ]
+    },
+    {
+      "id": "APR-2026-005",
+      "documentCode": "POL-INFOSEC-022",
+      "documentTitle": "Disaster Recovery Plan",
+      "category": "Information Security",
+      "currentStage": "draft",
+      "submittedBy": "Robert Kim",
+      "submittedDate": "2026-02-15",
+      "assignedTo": "Robert Kim",
+      "priority": "P0",
+      "dueDate": "2026-02-28",
+      "history": [
+        {
+          "stage": "draft",
+          "date": "2026-01-10",
+          "user": "Robert Kim",
+          "action": "Created"
+        },
+        {
+          "stage": "review",
+          "date": "2026-02-01",
+          "user": "Robert Kim",
+          "action": "Submitted for review"
+        },
+        {
+          "stage": "draft",
+          "date": "2026-02-05",
+          "user": "Lisa Wang",
+          "action": "Requested changes",
+          "comment": "Need more detail on RTO/RPO for critical systems. Also add tabletop exercise schedule."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "frameworks": [
+    {
+      "code": "FRA",
+      "name": "Financial Regulatory Authority",
+      "description": "Egyptian Financial Regulatory Authority compliance requirements",
+      "version": "2024",
+      "laws": [
+        {
+          "number": "139",
+          "title": "Microfinance Law 139/2014",
+          "articles": 45,
+          "completionPct": 65
+        },
+        {
+          "number": "140",
+          "title": "Cooperative Law 140/2014",
+          "articles": 32,
+          "completionPct": 72
+        },
+        {
+          "number": "227",
+          "title": "Consumer Protection Law 227/2020",
+          "articles": 28,
+          "completionPct": 58
+        }
+      ],
+      "overallCompletion": 65
+    },
+    {
+      "code": "COBIT",
+      "name": "COBIT 2019",
+      "description": "IT Governance Framework",
+      "version": "2019",
+      "domains": ["EDM", "APO", "BAI", "DSS", "MEA"],
+      "totalControls": 40,
+      "implementedControls": 24,
+      "completionPct": 60,
+      "maturityLevel": 3.2
+    },
+    {
+      "code": "NIST800",
+      "name": "NIST 800-53",
+      "description": "Technology Risk Compliance Framework",
+      "version": "Rev 5",
+      "controlFamilies": 20,
+      "totalControls": 195,
+      "implementedControls": 98,
+      "completionPct": 50,
+      "maturityLevel": 2.8
+    },
+    {
+      "code": "NISTCSF",
+      "name": "NIST Cybersecurity Framework",
+      "description": "Cyber Security Compliance Framework",
+      "version": "1.1",
+      "functions": ["Identify", "Protect", "Detect", "Respond", "Recover"],
+      "totalControls": 108,
+      "implementedControls": 75,
+      "completionPct": 69,
+      "maturityLevel": 3.5
+    },
+    {
+      "code": "ISO27001",
+      "name": "ISO/IEC 27001:2022",
+      "description": "Information Security Management System",
+      "version": "2022",
+      "annexAControls": 93,
+      "implementedControls": 58,
+      "completionPct": 62,
+      "maturityLevel": 3.1
+    }
+  ]
+}

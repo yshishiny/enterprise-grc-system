@@ -1,0 +1,98 @@
+[
+  {
+    "id": "gov-001",
+    "code": "TPL-GOV-001",
+    "name": "Board Governance Policy",
+    "category": "Governance & Board",
+    "type": "Policy",
+    "description": "Comprehensive template for board governance policies including charter, committee structure, and oversight responsibilities",
+    "sections": 12,
+    "estimatedTime": "2-3 hours",
+    "file": "policy_template_governance.md",
+    "tags": ["governance", "board", "oversight", "committees"]
+  },
+  {
+    "id": "risk-001",
+    "code": "TPL-RISK-001",
+    "name": "Risk Management Policy",
+    "category": "Risk Management",
+    "type": "Policy",
+    "description": "Enterprise risk management framework with risk appetite, assessment criteria, and KRI definitions",
+    "sections": 13,
+    "estimatedTime": "3-4 hours",
+    "file": "policy_template_risk.md",
+    "tags": ["risk", "assessment", "KRI", "mitigation"]
+  },
+  {
+    "id": "comp-001",
+    "code": "TPL-COMP-001",
+    "name": "Regulatory Compliance Policy",
+    "category": "Compliance & Regulatory",
+    "type": "Policy",
+    "description": "Template for regulatory compliance policies with FRA requirements and monitoring procedures",
+    "sections": 10,
+    "estimatedTime": "2-3 hours",
+    "file": "policy_template_compliance.md",
+    "tags": ["compliance", "FRA", "regulatory", "monitoring"]
+  },
+  {
+    "id": "infosec-001",
+    "code": "TPL-INFOSEC-001",
+    "name": "Information Security Policy",
+    "category": "Information Security",
+    "type": "Policy",
+    "description": "Comprehensive information security policy aligned with ISO 27001 standards",
+    "sections": 11,
+    "estimatedTime": "3-4 hours",
+    "file": "policy_template_infosec.md",
+    "tags": ["security", "ISO27001", "data protection", "access control"]
+  },
+  {
+    "id": "hr-001",
+    "code": "TPL-HR-001",
+    "name": "HR Policy",
+    "category": "Human Resources",
+    "type": "Policy",
+    "description": "Human resources policy template covering recruitment, performance, compensation, and development",
+    "sections": 9,
+    "estimatedTime": "2 hours",
+    "file": "policy_template_hr.md",
+    "tags": ["HR", "recruitment", "performance", "compensation"]
+  },
+  {
+    "id": "it-001",
+    "code": "TPL-ITG-001",
+    "name": "IT Governance Policy",
+    "category": "IT Governance",
+    "type": "Policy",
+    "description": "IT governance framework based on COBIT principles and ITIL best practices",
+    "sections": 10,
+    "estimatedTime": "2-3 hours",
+    "file": "policy_template_it.md",
+    "tags": ["IT", "COBIT", "ITIL", "governance"]
+  },
+  {
+    "id": "sop-001",
+    "code": "TPL-SOP-001",
+    "name": "Standard Operating Procedure",
+    "category": "Operations",
+    "type": "Procedure",
+    "description": "Generic SOP template for operational procedures with step-by-step instructions",
+    "sections": 8,
+    "estimatedTime": "1-2 hours",
+    "file": "procedure_template_sop.md",
+    "tags": ["SOP", "operations", "procedure", "process"]
+  },
+  {
+    "id": "proc-001",
+    "code": "TPL-PROC-001",
+    "name": "Process Documentation",
+    "category": "Operations",
+    "type": "Procedure",
+    "description": "Business process documentation template with workflow diagrams and controls",
+    "sections": 7,
+    "estimatedTime": "2-3 hours",
+    "file": "procedure_template_process.md",
+    "tags": ["process", "workflow", "controls", "documentation"]
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "document_types": [
+    "Policy",
+    "Procedure",
+    "WorkInstruction",
+    "FormTemplate",
+    "Record",
+    "LegalDocument",
+    "OrgHierarchy"
+  ],
+  "required_metadata": [
+    "document_no",
+    "document_version",
+    "issue_date",
+    "page_count",
+    "title",
+    "department_owner",
+    "scope",
+    "status",
+    "author",
+    "reviewer",
+    "approver",
+    "effective_date",
+    "review_due_date",
+    "tags_activity",
+    "tags_process",
+    "tags_risk_domain",
+    "confidentiality_level"
+  ],
+  "status_values": [
+    "Draft",
+    "UnderReview",
+    "Approved",
+    "Obsolete"
+  ],
+  "scope_values": [
+    "Enterprise",
+    "Department",
+    "Branch"
+  ],
+  "confidentiality_levels": [
+    "Internal",
+    "Restricted"
+  ]
+}

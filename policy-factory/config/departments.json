@@ -1,0 +1,15 @@
+{
+  "departments": [
+    "CEO Office",
+    "Finance",
+    "IT",
+    "HR",
+    "Audit",
+    "Risk",
+    "Governance & Compliance (GRC)",
+    "AML",
+    "Administration & Security",
+    "Commercial",
+    "Purchasing"
+  ]
+}

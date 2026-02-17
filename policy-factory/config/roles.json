@@ -1,0 +1,52 @@
+{
+  "roles": [
+    {
+      "role": "Reader",
+      "permissions": ["ViewApproved", "Search", "AskAI"]
+    },
+    {
+      "role": "Contributor",
+      "permissions": ["CreateDraft", "EditDraft", "SubmitForReview"]
+    },
+    {
+      "role": "DocumentOwner",
+      "permissions": ["CreateDraft", "EditDraft", "ManageMetadata", "SubmitForReview", "RespondToComments"]
+    },
+    {
+      "role": "Reviewer_GRC",
+      "permissions": ["ViewUnderReview", "Comment", "RequestChanges", "ApproveStage"]
+    },
+    {
+      "role": "Reviewer_Risk",
+      "permissions": ["ViewUnderReview", "Comment", "RequestChanges", "ApproveStage"]
+    },
+    {
+      "role": "Reviewer_AML",
+      "permissions": ["ViewUnderReview", "Comment", "RequestChanges", "ApproveStage"]
+    },
+    {
+      "role": "Reviewer_ITSecurity",
+      "permissions": ["ViewUnderReview", "Comment", "RequestChanges", "ApproveStage"]
+    },
+    {
+      "role": "Approver",
+      "permissions": ["FinalApprove", "Reject", "ReturnForRework"]
+    },
+    {
+      "role": "Auditor",
+      "permissions": ["ViewAllApproved", "ViewAuditTrail", "ViewEvidence", "ExportReports"]
+    },
+    {
+      "role": "SystemAdmin",
+      "permissions": ["ManageWorkflows", "ManageRBAC", "ManageIndex", "ManageIntegrations"]
+    }
+  ],
+  "ad_group_mapping": [
+    { "ad_group": "SHARI-POLICY-READERS", "role": "Reader" },
+    { "ad_group": "SHARI-POLICY-CONTRIBUTORS", "role": "Contributor" },
+    { "ad_group": "SHARI-GRC-REVIEWERS", "role": "Reviewer_GRC" },
+    { "ad_group": "SHARI-RISK-REVIEWERS", "role": "Reviewer_Risk" },
+    { "ad_group": "SHARI-APPROVERS", "role": "Approver" },
+    { "ad_group": "SHARI-AUDIT", "role": "Auditor" }
+  ]
+}

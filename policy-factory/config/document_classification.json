@@ -1,0 +1,182 @@
+{
+  "documentClassification": {
+    "governance": {
+      "name": "Governance & Board",
+      "code": "GOV",
+      "description": "Board governance, corporate governance, and executive oversight",
+      "subcategories": [
+        "Board Charter & Bylaws",
+        "Corporate Governance",
+        "Ethics & Conduct",
+        "Shareholder Relations",
+        "Board Committees"
+      ],
+      "totalRequired": 12,
+      "completed": 8,
+      "inProgress": 2,
+      "notStarted": 2
+    },
+    "risk": {
+      "name": "Risk Management",
+      "code": "RISK",
+      "description": "Enterprise risk, credit risk, operational risk management",
+      "subcategories": [
+        "Enterprise Risk Framework",
+        "Credit Risk",
+        "Operational Risk",
+        "Market Risk",
+        "Liquidity Risk",
+        "Risk Assessment & Monitoring"
+      ],
+      "totalRequired": 16,
+      "completed": 12,
+      "inProgress": 3,
+      "notStarted": 1
+    },
+    "compliance": {
+      "name": "Compliance & Regulatory",
+      "code": "COMP",
+      "description": "Regulatory compliance, FRA requirements, legal compliance",
+      "subcategories": [
+        "FRA Law 139 Compliance",
+        "FRA Law 140 Compliance",
+        "FRA Law 227 Compliance",
+        "Anti-Money Laundering (AML)",
+        "Know Your Customer (KYC)",
+        "Consumer Protection",
+        "Data Privacy & GDPR"
+      ],
+      "totalRequired": 20,
+      "completed": 13,
+      "inProgress": 5,
+      "notStarted": 2
+    },
+    "informationSecurity": {
+      "name": "Information Security",
+      "code": "INFOSEC",
+      "description": "IT security, data protection, cyber security controls",
+      "subcategories": [
+        "Information Security Policy",
+        "Access Control",
+        "Data Protection",
+        "Incident Response",
+        "Business Continuity",
+        "Security Awareness",
+        "Vendor Security"
+      ],
+      "totalRequired": 18,
+      "completed": 14,
+      "inProgress": 3,
+      "notStarted": 1
+    },
+    "itGovernance": {
+      "name": "IT Governance & Operations",
+      "code": "ITG",
+      "description": "IT governance, operations, change management, service delivery",
+      "subcategories": [
+        "IT Governance Framework",
+        "IT Service Management",
+        "Change Management",
+        "Configuration Management",
+        "Capacity Management",
+        "IT Projects & Development"
+      ],
+      "totalRequired": 15,
+      "completed": 11,
+      "inProgress": 3,
+      "notStarted": 1
+    },
+    "humanResources": {
+      "name": "Human Resources",
+      "code": "HR",
+      "description": "HR policies, employment, training, benefits",
+      "subcategories": [
+        "Recruitment & Hiring",
+        "Employee Relations",
+        "Performance Management",
+        "Compensation & Benefits",
+        "Training & Development",
+        "Labor Law Compliance",
+        "Health & Safety"
+      ],
+      "totalRequired": 14,
+      "completed": 11,
+      "inProgress": 2,
+      "notStarted": 1
+    },
+    "operations": {
+      "name": "Operations & Service Delivery",
+      "code": "OPS",
+      "description": "Operational procedures, service delivery, quality management",
+      "subcategories": [
+        "Loan Processing",
+        "Client Onboarding",
+        "Collections Management",
+        "Branch Operations",
+        "Quality Assurance",
+        "Vendor Management"
+      ],
+      "totalRequired": 20,
+      "completed": 15,
+      "inProgress": 4,
+      "notStarted": 1
+    },
+    "finance": {
+      "name": "Finance & Treasury",
+      "code": "FIN",
+      "description": "Financial management, accounting, treasury operations",
+      "subcategories": [
+        "Financial Policies",
+        "Treasury Management",
+        "Budget & Planning",
+        "Financial Reporting",
+        "Internal Controls",
+        "Audit & Assurance"
+      ],
+      "totalRequired": 12,
+      "completed": 9,
+      "inProgress": 2,
+      "notStarted": 1
+    },
+    "audit": {
+      "name": "Internal Audit",
+      "code": "AUDIT",
+      "description": "Internal audit, compliance monitoring, quality assurance",
+      "subcategories": [
+        "Audit Charter",
+        "Audit Planning",
+        "Audit Execution",
+        "Reporting & Follow-up",
+        "Quality Assurance"
+      ],
+      "totalRequired": 8,
+      "completed": 6,
+      "inProgress": 1,
+      "notStarted": 1
+    },
+    "administration": {
+      "name": "Administration & Support",
+      "code": "ADMIN",
+      "description": "Administrative services, facilities, procurement",
+      "subcategories": [
+        "Facilities Management",
+        "Procurement",
+        "Travel & Expenses",
+        "Records Management",
+        "Asset Management"
+      ],
+      "totalRequired": 10,
+      "completed": 8,
+      "inProgress": 1,
+      "notStarted": 1
+    }
+  },
+  "overallMetrics": {
+    "totalSubjects": 10,
+    "totalDocumentsRequired": 145,
+    "totalCompleted": 107,
+    "totalInProgress": 26,
+    "totalNotStarted": 12,
+    "overallCompletionPct": 74
+  }
+}

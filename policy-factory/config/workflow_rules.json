@@ -1,0 +1,43 @@
+{
+  "workflows": [
+    {
+      "workflow_name": "Policy_Enterprise_Default",
+      "applies_to": ["Policy"],
+      "stages": [
+        { "stage": "Draft", "assignee_role": "DocumentOwner", "actions": ["SubmitForReview"] },
+        { "stage": "GRC_Review", "assignee_role": "Reviewer_GRC", "actions": ["ApproveStage", "RequestChanges"] },
+        { "stage": "Risk_Review", "assignee_role": "Reviewer_Risk", "actions": ["ApproveStage", "RequestChanges"] },
+        { "stage": "DeptHead_Review", "assignee_role": "Approver", "actions": ["ApproveStage", "RequestChanges"] },
+        { "stage": "Final_Approval", "assignee_role": "Approver", "actions": ["FinalApprove", "Reject", "ReturnForRework"] },
+        { "stage": "Publish", "assignee_role": "SystemAdmin", "actions": ["PublishApproved"] }
+      ],
+      "rules": {
+        "on_publish": ["IndexDocument", "TriggerAttestationIfRequired", "CreateReviewReminder"]
+      }
+    },
+    {
+      "workflow_name": "Procedure_Default",
+      "applies_to": ["Procedure"],
+      "stages": [
+        { "stage": "Draft", "assignee_role": "DocumentOwner", "actions": ["SubmitForReview"] },
+        { "stage": "DeptReview", "assignee_role": "Approver", "actions": ["ApproveStage", "RequestChanges"] },
+        { "stage": "GRC_Review", "assignee_role": "Reviewer_GRC", "actions": ["ApproveStage", "RequestChanges"] },
+        { "stage": "Final_Approval", "assignee_role": "Approver", "actions": ["FinalApprove", "Reject", "ReturnForRework"] },
+        { "stage": "Publish", "assignee_role": "SystemAdmin", "actions": ["PublishApproved"] }
+      ]
+    },
+    {
+      "workflow_name": "Exception_Approval",
+      "applies_to": ["Exception"],
+      "stages": [
+        { "stage": "Submit", "assignee_role": "DocumentOwner", "actions": ["SubmitForApproval"] },
+        { "stage": "GRC_Risk_Review", "assignee_role": "Reviewer_GRC", "actions": ["ApproveStage", "RequestChanges"] },
+        { "stage": "Risk_Approve", "assignee_role": "Reviewer_Risk", "actions": ["ApproveStage", "RequestChanges"] },
+        { "stage": "Final_Approval", "assignee_role": "Approver", "actions": ["FinalApprove", "Reject"] }
+      ],
+      "rules": {
+        "must_have": ["justification", "expiry_date", "compensating_controls"]
+      }
+    }
+  ]
+}

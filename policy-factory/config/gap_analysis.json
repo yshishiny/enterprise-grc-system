@@ -1,0 +1,432 @@
+{
+  "gapAnalysis": {
+    "summary": {
+      "totalRequired": 145,
+      "completed": 107,
+      "inProgress": 26,
+      "notStarted": 12,
+      "completionRate": 74
+    },
+    "priorityGaps": [
+      {
+        "category": "Compliance & Regulatory",
+        "priority": "P0 - Critical",
+        "missing": [
+          {
+            "document": "FRA Law 227 Consumer Protection Implementation Procedure",
+            "reason": "Required for full consumer protection compliance",
+            "deadline": "Q1 2026",
+            "owner": "Compliance"
+          },
+          {
+            "document": "Data Privacy Policy (GDPR Aligned)",
+            "reason": "Essential for personal data protection",
+            "deadline": "Q1 2026",
+            "owner": "IT / Legal"
+          }
+        ]
+      },
+      {
+        "category": "Information Security",
+        "priority": "P0 - Critical",
+        "missing": [
+          {
+            "document": "Disaster Recovery Plan",
+            "reason": "Critical for business continuity",
+            "deadline": "Q1 2026",
+            "owner": "IT"
+          }
+        ]
+      },
+      {
+        "category": "Risk Management",
+        "priority": "P1 - High",
+        "missing": [
+          {
+            "document": "Market Risk Assessment Procedure",
+            "reason": "Required for comprehensive risk coverage",
+            "deadline": "Q2 2026",
+            "owner": "Risk"
+          }
+        ]
+      },
+      {
+        "category": "Governance & Board",
+        "priority": "P1 - High",
+        "missing": [
+          {
+            "document": "Succession Planning Policy",
+            "reason": "Required for executive continuity",
+            "deadline": "Q2 2026",
+            "owner": "BOD / HR"
+          },
+          {
+            "document": "Related Party Transactions Policy",
+            "reason": "Required for FRA compliance",
+            "deadline": "Q2 2026",
+            "owner": "BOD"
+          }
+        ]
+      },
+      {
+        "category": "IT Governance & Operations",
+        "priority": "P2 - Medium",
+        "missing": [
+          {
+            "document": "Software Development Lifecycle (SDLC) Policy",
+            "reason": "Needed for development governance",
+            "deadline": "Q3 2026",
+            "owner": "IT"
+          }
+        ]
+      },
+      {
+        "category": "Human Resources",
+        "priority": "P2 - Medium",
+        "missing": [
+          {
+            "document": "Remote Work Policy",
+            "reason": "Modern workplace requirement",
+            "deadline": "Q2 2026",
+            "owner": "HR"
+          }
+        ]
+      },
+      {
+        "category": "Operations & Service Delivery",
+        "priority": "P2 - Medium",
+        "missing": [
+          {
+            "document": "Collections Recovery Procedure",
+            "reason": "Operational efficiency",
+            "deadline": "Q3 2026",
+            "owner": "Operations"
+          }
+        ]
+      },
+      {
+        "category": "Finance & Treasury",
+        "priority": "P2 - Medium",
+        "missing": [
+          {
+            "document": "Investment Policy",
+            "reason": "Treasury management",
+            "deadline": "Q3 2026",
+            "owner": "Finance"
+          }
+        ]
+      },
+      {
+        "category": "Internal Audit",
+        "priority": "P2 - Medium",
+        "missing": [
+          {
+            "document": "Continuous Audit Monitoring Procedure",
+            "reason": "Enhanced audit capabilities",
+            "deadline": "Q3 2026",
+            "owner": "Audit"
+          }
+        ]
+      },
+      {
+        "category": "Administration & Support",
+        "priority": "P3 - Low",
+        "missing": [
+          {
+            "document": "Green Office Environmental Policy",
+            "reason": "Sustainability initiative",
+            "deadline": "Q4 2026",
+            "owner": "Administration"
+          }
+        ]
+      }
+    ],
+    "completedDocuments": {
+      "governance": [
+        "Board Charter",
+        "Corporate Governance Policy",
+        "Code of Ethics",
+        "Board Committees Charter",
+        "Conflict of Interest Policy",
+        "Whistleblower Policy",
+        "Board Meeting Procedures",
+        "Strategic Planning Framework"
+      ],
+      "risk": [
+        "Enterprise Risk Management Framework",
+        "Credit Risk Policy",
+        "Operational Risk Policy",
+        "Risk Assessment Procedure",
+        "Risk Monitoring & Reporting",
+        "Risk Appetite Statement",
+        "Credit Scoring Model",
+        "Loan Portfolio Management",
+        "Non-Performing Loans (NPL) Management",
+        "Risk Committee Charter",
+        "Concentration Risk Policy",
+        "Stress Testing Framework"
+      ],
+      "compliance": [
+        "FRA Law 139 Compliance Manual",
+        "FRA Law 140 Compliance Manual",
+        "AML/CFT Policy",
+        "KYC Procedures",
+        "Customer Due Diligence (CDD)",
+        "Sanctions Screening Procedure",
+        "Compliance Monitoring Program",
+        "Regulatory Reporting Procedure",
+        "Consumer Complaints Handling",
+        "Fair Lending Policy",
+        "Disclosure & Transparency Policy",
+        "Client Protection Principles",
+        "Product Suitability Assessment"
+      ],
+      "informationSecurity": [
+        "Information Security Policy",
+        "Access Control Policy",
+        "Password Policy",
+        "Data Classification Policy",
+        "Encryption Standards",
+        "Incident Response Plan",
+        "Security Awareness Training",
+        "Physical Security Policy",
+        "Mobile Device Management",
+        "Backup & Recovery Procedure",
+        "Network Security Policy",
+        "Vulnerability Management",
+        "Third-Party Security Assessment",
+        "Security Monitoring & Logging"
+      ],
+      "itGovernance": [
+        "IT Governance Framework (COBIT)",
+        "IT Service Management (ITIL)",
+        "Change Management Policy",
+        "Configuration Management Database (CMDB)",
+        "Capacity Planning Procedure",
+        "IT Asset Management",
+        "Software License Management",
+        "IT Project Management",
+        "Service Level Agreements (SLA)",
+        "IT Vendor Management",
+        "IT Resource Allocation"
+      ],
+      "humanResources": [
+        "Recruitment & Selection Policy",
+        "Employee Handbook",
+        "Performance Management System",
+        "Compensation & Benefits Policy",
+        "Training & Development Program",
+        "Labor Law Compliance Manual",
+        "Occupational Health & Safety",
+        "Leave Management Policy",
+        "Disciplinary Procedures",
+        "Employee Exit Procedure",
+        "Job Evaluation & Grading"
+      ],
+      "operations": [
+        "Loan Origination Procedure",
+        "Client Onboarding (KYC)",
+        "Loan Disbursement Procedure",
+        "Credit Assessment Process",
+        "Collateral Management",
+        "Collections Policy",
+        "Early Warning System",
+        "Branch Operations Manual",
+        "Cash Management Procedure",
+        "Quality Assurance Framework",
+        "Service Delivery Standards",
+        "Customer Service Policy",
+        "Vendor Selection & Management",
+        "Contract Management",
+        "Outsourcing Policy"
+      ],
+      "finance": [
+        "Financial Management Policy",
+        "Chart of Accounts",
+        "Budget Preparation & Control",
+        "Financial Reporting Standards",
+        "Treasury Operations Manual",
+        "Internal Financial Controls",
+        "Accounting Policies (IFRS)",
+        "Fixed Assets Management",
+        "Expense Reimbursement Policy"
+      ],
+      "audit": [
+        "Internal Audit Charter",
+        "Annual Audit Plan",
+        "Audit Execution Manual",
+        "Audit Reporting Standards",
+        "Follow-up & Remediation Tracking",
+        "Audit Quality Assurance"
+      ],
+      "administration": [
+        "Facilities Management Policy",
+        "Procurement Policy",
+        "Travel & Expense Policy",
+        "Records Retention Schedule",
+        "Document Management System",
+        "Office Supplies Management",
+        "Fleet Management",
+        "Lease & Contract Management"
+      ]
+    },
+    "inProgressDocuments": [
+      {
+        "name": "Related Party Transactions Policy",
+        "category": "Governance",
+        "progress": 60,
+        "expectedCompletion": "2026-03-15"
+      },
+      {
+        "name": "Succession Planning Policy",
+        "category": "Governance",
+        "progress": 40,
+        "expectedCompletion": "2026-04-30"
+      },
+      {
+        "name": "Market Risk Policy",
+        "category": "Risk",
+        "progress": 75,
+        "expectedCompletion": "2026-03-31"
+      },
+      {
+        "name": "Liquidity Risk Framework",
+        "category": "Risk",
+        "progress": 50,
+        "expectedCompletion": "2026-04-15"
+      },
+      {
+        "name": "Model Validation Framework",
+        "category": "Risk",
+        "progress": 30,
+        "expectedCompletion": "2026-05-31"
+      },
+      {
+        "name": "FRA Law 227 Implementation",
+        "category": "Compliance",
+        "progress": 45,
+        "expectedCompletion": "2026-03-31"
+      },
+      {
+        "name": "Data Privacy Policy",
+        "category": "Compliance",
+        "progress": 70,
+        "expectedCompletion": "2026-02-28"
+      },
+      {
+        "name": "GDPR Compliance Manual",
+        "category": "Compliance",
+        "progress": 55,
+        "expectedCompletion": "2026-03-31"
+      },
+      {
+        "name": "Social Media Policy",
+        "category": "Compliance",
+        "progress": 20,
+        "expectedCompletion": "2026-06-30"
+      },
+      {
+        "name": "Electronic Communications Policy",
+        "category": "Compliance",
+        "progress": 35,
+        "expectedCompletion": "2026-05-31"
+      },
+      {
+        "name": "Disaster Recovery Plan",
+        "category": "InfoSec",
+        "progress": 80,
+        "expectedCompletion": "2026-02-28"
+      },
+      {
+        "name": "Cloud Security Policy",
+        "category": "InfoSec",
+        "progress": 60,
+        "expectedCompletion": "2026-04-30"
+      },
+      {
+        "name": "Penetration Testing Procedure",
+        "category": "InfoSec",
+        "progress": 25,
+        "expectedCompletion": "2026-05-31"
+      },
+      {
+        "name": "SDLC Policy",
+        "category": "IT Governance",
+        "progress": 40,
+        "expectedCompletion": "2026-06-30"
+      },
+      {
+        "name": "DevOps Procedures",
+        "category": "IT Governance",
+        "progress": 30,
+        "expectedCompletion": "2026-07-31"
+      },
+      {
+        "name": "API Management Policy",
+        "category": "IT Governance",
+        "progress": 15,
+        "expectedCompletion": "2026-08-31"
+      },
+      {
+        "name": "Remote Work Policy",
+        "category": "HR",
+        "progress": 65,
+        "expectedCompletion": "2026-04-30"
+      },
+      {
+        "name": "Diversity & Inclusion Policy",
+        "category": "HR",
+        "progress": 50,
+        "expectedCompletion": "2026-05-31"
+      },
+      {
+        "name": "Collections Recovery SOP",
+        "category": "Operations",
+        "progress": 55,
+        "expectedCompletion": "2026-06-30"
+      },
+      {
+        "name": "Digital Lending Platform SOP",
+        "category": "Operations",
+        "progress": 70,
+        "expectedCompletion": "2026-03-31"
+      },
+      {
+        "name": "Mobile Banking Operations",
+        "category": "Operations",
+        "progress": 45,
+        "expectedCompletion": "2026-05-31"
+      },
+      {
+        "name": "Customer Satisfaction Measurement",
+        "category": "Operations",
+        "progress": 30,
+        "expectedCompletion": "2026-06-30"
+      },
+      {
+        "name": "Investment Policy",
+        "category": "Finance",
+        "progress": 40,
+        "expectedCompletion": "2026-06-30"
+      },
+      {
+        "name": "Foreign Exchange Management",
+        "category": "Finance",
+        "progress": 25,
+        "expectedCompletion": "2026-07-31"
+      },
+      {
+        "name": "Continuous Audit Monitoring",
+        "category": "Audit",
+        "progress": 35,
+        "expectedCompletion": "2026-06-30"
+      },
+      {
+        "name": "Environmental Sustainability",
+        "category": "Administration",
+        "progress": 20,
+        "expectedCompletion": "2026-09-30"
+      }
+    ]
+  }
+}

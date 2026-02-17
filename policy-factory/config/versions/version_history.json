@@ -1,0 +1,122 @@
+{
+  "POL-GOV-001": {
+    "documentCode": "POL-GOV-001",
+    "documentTitle": "Board of Directors Charter",
+    "currentVersion": "2.1",
+    "versions": [
+      {
+        "version": "1.0",
+        "date": "2024-01-15",
+        "author": "Sarah Johnson",
+        "approver": "Board of Directors",
+        "status": "Archived",
+        "changes": "Initial version",
+        "file": "board_charter_v1.0.md"
+      },
+      {
+        "version": "1.1",
+        "date": "2024-06-10",
+        "author": "Sarah Johnson",
+        "approver": "Board of Directors",
+        "status": "Archived",
+        "changes": "Added committee structures and expanded governance section",
+        "file": "board_charter_v1.1.md"
+      },
+      {
+        "version": "2.0",
+        "date": "2025-01-20",
+        "author": "Michael Chen",
+        "approver": "Board of Directors",
+        "status": "Archived",
+        "changes": "Major revision aligning with FRA Law 227/2020 requirements",
+        "file": "board_charter_v2.0.md"
+      },
+      {
+        "version": "2.1",
+        "date": "2026-02-01",
+        "author": "Sarah Johnson",
+        "approver": "Board of Directors",
+        "status": "Current",
+        "changes": "Updated board composition requirements and meeting frequency",
+        "file": "board_charter_v2.1.md"
+      }
+    ]
+  },
+  "POL-RISK-003": {
+    "documentCode": "POL-RISK-003",
+    "documentTitle": "Enterprise Risk Management Policy",
+    "currentVersion": "1.2",
+    "versions": [
+      {
+        "version": "1.0",
+        "date": "2024-03-01",
+        "author": "David Martinez",
+        "approver": "Risk Committee",
+        "status": "Archived",
+        "changes": "Initial policy framework",
+        "file": "erm_policy_v1.0.md"
+      },
+      {
+        "version": "1.1",
+        "date": "2025-09-15",
+        "author": "David Martinez",
+        "approver": "Risk Committee",
+        "status": "Archived",
+        "changes": "Added KRIs and risk appetite statement",
+        "file": "erm_policy_v1.1.md"
+      },
+      {
+        "version": "1.2",
+        "date": "2026-01-10",
+        "author": "Jennifer Park",
+        "approver": "Risk Committee",
+        "status": "Current",
+        "changes": "Enhanced risk assessment criteria and escalation procedures",
+        "file": "erm_policy_v1.2.md"
+      }
+    ]
+  },
+  "POL-INFOSEC-005": {
+    "documentCode": "POL-INFOSEC-005",
+    "documentTitle": "Information Security Policy",
+    "currentVersion": "3.0",
+    "versions": [
+      {
+        "version": "1.0",
+        "date": "2023-05-01",
+        "author": "Robert Kim",
+        "approver": "Executive Committee",
+        "status": "Archived",
+        "changes": "Initial security framework",
+        "file": "infosec_policy_v1.0.md"
+      },
+      {
+        "version": "2.0",
+        "date": "2024-11-20",
+        "author": "Lisa Wang",
+        "approver": "Executive Committee",
+        "status": "Archived",
+        "changes": "ISO 27001:2022 alignment and cloud security controls",
+        "file": "infosec_policy_v2.0.md"
+      },
+      {
+        "version": "2.5",
+        "date": "2025-07-30",
+        "author": "Robert Kim",
+        "approver": "Executive Committee",
+        "status": "Archived",
+        "changes": "Added zero-trust architecture and MFA requirements",
+        "file": "infosec_policy_v2.5.md"
+      },
+      {
+        "version": "3.0",
+        "date": "2026-01-15",
+        "author": "Lisa Wang",
+        "approver": "Executive Committee",
+        "status": "Current",
+        "changes": "Major update for NIST CSF 2.0 and enhanced threat detection",
+        "file": "infosec_policy_v3.0.md"
+      }
+    ]
+  }
+}
