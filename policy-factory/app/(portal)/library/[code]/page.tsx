@@ -212,7 +212,12 @@ This policy will be reviewed:
                     const parts = line.split('**')
                     return <p key={idx}><strong>{parts[1]}</strong> {parts[2]}</p>
                   } else if (line.startsWith('- ')) {
-                    return <li key={idx}>{line.substring(2)}</li>
+                    return (
+                      <div key={idx} className="flex gap-2 pl-4">
+                        <span className="text-slate-400">•</span>
+                        <span>{line.substring(2)}</span>
+                      </div>
+                    )
                   } else if (line.startsWith('---')) {
                     return <hr key={idx} className="my-8" />
                   } else if (line.startsWith('| ')) {

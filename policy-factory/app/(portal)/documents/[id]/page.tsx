@@ -1,7 +1,7 @@
 
 "use client"
 
-import { useState, useEffect } from "react"
+import React, { useState, useEffect, Suspense } from "react"
 import { useParams, useRouter } from "next/navigation"
 import Link from "next/link"
 import { 
@@ -11,15 +11,17 @@ import {
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Textarea } from "@/components/ui/textarea"
-import { ScrollArea } from "@/components/ui/scroll-area"
 
-export default function DocumentValidatorPage() {
+export const dynamic = "force-dynamic";
+
+function ValidatorContent() {
   const params = useParams()
   const router = useRouter()
-  // Ensure id is a string
-  const docId = Array.isArray(params.id) ? params.id[0] : params.id;
+  
+  // Safe extraction of docId
+  const rawId = params?.id;
+  const docId = Array.isArray(rawId) ? rawId[0] : rawId || "";
   
   const [doc, setDoc] = useState<any>(null)
   const [loading, setLoading] = useState(true)
@@ -28,18 +30,19 @@ export default function DocumentValidatorPage() {
   const [analyzing, setAnalyzing] = useState(false)
   const [comment, setComment] = useState("")
 
-  // Fetch Doc
   useEffect(() => {
+    if (!docId) return;
+    
     fetch("/api/registry")
       .then(r => r.json())
       .then(data => {
         const d = data.documents?.find((x: any) => x.id === decodeURIComponent(docId))
         if(d) setDoc(d)
       })
+      .catch(err => console.error("Failed to load doc", err))
       .finally(() => setLoading(false))
   }, [docId])
 
-  // AI Action
   const runAiAnalysis = async (type: "proof" | "trans" | "check") => {
     setAnalyzing(true)
     setAiAnalysis(null)
@@ -71,7 +74,6 @@ export default function DocumentValidatorPage() {
 
   return (
     <div className={`min-h-screen bg-slate-50 p-6 ${isAr ? "rtl" : "ltr"}`} dir={isAr ? "rtl" : "ltr"}>
-      {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-4">
           <Button variant="ghost" onClick={() => router.back()}>
@@ -99,7 +101,6 @@ export default function DocumentValidatorPage() {
       </div>
 
       <div className="grid grid-cols-3 gap-6">
-        {/* Main Content */}
         <div className="col-span-2 space-y-6">
           <Card>
             <CardHeader>
@@ -119,7 +120,6 @@ export default function DocumentValidatorPage() {
                  </div>
               </div>
               
-              {/* Obligations Link */}
               {doc.obligations && doc.obligations.length > 0 && (
                 <div className="p-4 border border-purple-100 bg-purple-50/50 rounded-lg">
                   <h3 className="text-sm font-semibold text-purple-800 flex items-center gap-2 mb-2">
@@ -138,7 +138,6 @@ export default function DocumentValidatorPage() {
             </CardContent>
           </Card>
 
-          {/* Comments Section */}
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -161,7 +160,6 @@ export default function DocumentValidatorPage() {
           </Card>
         </div>
 
-        {/* AI Sidebar */}
         <div className="col-span-1 space-y-6">
            <Card className="border-blue-100 bg-blue-50/30">
              <CardHeader className="pb-3">
@@ -173,7 +171,7 @@ export default function DocumentValidatorPage() {
              </CardHeader>
              <CardContent className="space-y-3">
                <p className="text-xs text-muted-foreground">
-                 Ask the AI to validate this document against standards or suggest improvements.
+                 Ask the AI to validate this document against standards.
                </p>
                <div className="flex flex-col gap-2">
                  <Button variant="outline" className="justify-start bg-white" onClick={() => runAiAnalysis('proof')} disabled={analyzing}>
@@ -204,5 +202,13 @@ export default function DocumentValidatorPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function DocumentValidatorPage() {
+  return (
+    <Suspense fallback={<div className="p-8">Loading...</div>}>
+      <ValidatorContent />
+    </Suspense>
   )
 }

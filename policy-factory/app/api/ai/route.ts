@@ -1,12 +1,15 @@
 
 import { NextResponse } from 'next/server';
-import ai from '@/lib/ai';
+import { getAiClient } from '@/lib/ai';
+
+export const dynamic = 'force-dynamic';
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
     const { prompt, system } = body;
 
+    const ai = getAiClient();
     const completion = await ai.chat.completions.create({
       messages: [
         { role: "system", content: system || "You are an expert GRC consultant for Shari Microfinance." },

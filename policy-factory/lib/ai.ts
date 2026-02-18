@@ -1,12 +1,19 @@
 
 import OpenAI from "openai";
 
-// Configure for Local LM Studio
-// LM Studio usually runs on port 1234
-const ai = new OpenAI({
-  baseURL: "http://localhost:1234/v1",
-  apiKey: "lm-studio", // Not used locally but required by SDK
-  dangerouslyAllowBrowser: true // Allow running in Next.js client-side if needed (though API routes are safer)
-});
+// Configure for GitHub Models (Lazy Load)
+export function getAiClient() {
+  const apiKey = process.env.GITHUB_TOKEN;
+  if (!apiKey) {
+    console.warn("⚠️ GITHUB_TOKEN not found. AI features will be disabled.");
+    // Return a dummy or throw a clear error
+    // For build safety, return a mock or allow it to fail at runtime
+  }
 
-export default ai;
+  return new OpenAI({
+    baseURL: "https://models.inference.ai.azure.com",
+    apiKey: apiKey || "dummy-key-for-build", 
+    dangerouslyAllowBrowser: true
+  });
+}
+

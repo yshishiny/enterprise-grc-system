@@ -14,7 +14,9 @@ import {
   FileText,
   RefreshCw,
   Sparkles,
-  ChevronDown
+  ChevronDown,
+  Wand2,
+  MapPin
 } from "lucide-react"
 
 interface Document {
@@ -35,8 +37,18 @@ interface RegistryData {
   documents: Document[]
 }
 
-const statusOptions = ["Approved", "Draft", "Under Review", "Enhancement Needed"]
-const deptOptions = ["IT", "HR", "OPS", "COM", "RISK", "AUDIT", "BOD", "ADMIN"]
+const statusOptions = ["Approved", "Draft", "Under Review", "Enhancement Needed", "Pending Mapping"]
+const deptOptions = ["IT", "HR", "OPS", "COM", "RISK", "AUDIT", "BOD", "ADMIN", "AML", "FINANCE", "OPERATIONS"]
+const MAPPING_KEYWORDS: Record<string, string[]> = {
+  HR: ["hr", "human", "employee", "onboard", "hiring", "payroll", "leave", "performance", "training", "personnel", "labor", "labour", "عمل", "موظف", "تعيين", "أداء"],
+  IT: ["it", "cyber", "security", "access", "network", "data", "backup", "incident", "patch", "vulnerability", "password", "encryption", "firewall", "media", "asset", "information"],
+  AML: ["aml", "cft", "kyc", "sanction", "screening", "suspicious", "transaction", "monitoring", "pep", "terrorism", "laundering", "غسل"],
+  RISK: ["risk", "bcm", "bcp", "disaster", "continuity", "assessment", "appetite", "مخاطر"],
+  AUDIT: ["audit", "internal", "finding", "recommendation", "capa", "universe", "تدقيق", "مراجعة"],
+  FINANCE: ["finance", "budget", "tax", "accounting", "treasury", "payment", "procurement", "مالية", "ضريب"],
+  OPERATIONS: ["operation", "process", "procedure", "sop", "workflow", "quality", "complaint", "إجراء", "عملية"],
+  COM: ["credit", "loan", "customer", "product", "commercial", "collection", "ائتمان", "تمويل"],
+}
 const statusColors: Record<string, string> = {
   "Approved": "bg-green-50 text-green-700 border-green-200",
   "Draft": "bg-amber-50 text-amber-700 border-amber-200",
@@ -53,6 +65,42 @@ export default function ValidatePage() {
   const [statusFilter, setStatusFilter] = useState<string | null>(null)
   const [changes, setChanges] = useState<Record<string, { status?: string; department?: string }>>({})
   const [saveSuccess, setSaveSuccess] = useState<string | null>(null)
+  const [autoMapping, setAutoMapping] = useState<string | null>(null)
+
+  // Auto-map a document to its best-match department based on filename/notes keywords
+  const autoMapOne = (doc: Document) => {
+    setAutoMapping(doc.id)
+    const text = `${doc.filename} ${doc.systemNotes} ${doc.id}`.toLowerCase()
+    let bestDept = doc.department
+    let bestScore = 0
+
+    for (const [dept, keywords] of Object.entries(MAPPING_KEYWORDS)) {
+      const score = keywords.filter(kw => text.includes(kw)).length
+      if (score > bestScore) {
+        bestScore = score
+        bestDept = dept
+      }
+    }
+
+    // Apply mapping
+    const newStatus = bestScore > 0 ? "Draft" : "Enhancement Needed"
+    setChanges(prev => ({
+      ...prev,
+      [doc.id]: { ...prev[doc.id], department: bestDept, status: newStatus }
+    }))
+    setTimeout(() => setAutoMapping(null), 500)
+  }
+
+  const autoMapAll = () => {
+    const pending = docs.filter(d =>
+      d.filename.toLowerCase().includes("pending") ||
+      d.systemNotes.toLowerCase().includes("pending") ||
+      d.status === "Pending Mapping"
+    )
+    for (const doc of pending) {
+      autoMapOne(doc)
+    }
+  }
 
   const fetchDocs = () => {
     setLoading(true)
@@ -133,6 +181,11 @@ export default function ValidatePage() {
   }
 
   const pendingCount = Object.keys(changes).length
+  const pendingMappingCount = docs.filter(d =>
+    d.filename.toLowerCase().includes("pending") ||
+    d.systemNotes.toLowerCase().includes("pending") ||
+    d.status === "Pending Mapping"
+  ).length
 
   if (loading) {
     return (
@@ -153,12 +206,20 @@ export default function ValidatePage() {
           <h1 className="text-3xl font-bold tracking-tight text-slate-900">Document Validation</h1>
           <p className="text-muted-foreground mt-1">Set the official status of each policy and procedure</p>
         </div>
-        {pendingCount > 0 && (
-          <Button onClick={saveAll} className="bg-blue-600 hover:bg-blue-700 gap-2">
-            <Save className="h-4 w-4" />
-            Save All ({pendingCount} changes)
-          </Button>
-        )}
+        <div className="flex gap-2">
+          {pendingMappingCount > 0 && (
+            <Button onClick={autoMapAll} variant="outline" className="gap-2 border-purple-300 text-purple-700 hover:bg-purple-50">
+              <Wand2 className="h-4 w-4" />
+              Auto Map All ({pendingMappingCount})
+            </Button>
+          )}
+          {pendingCount > 0 && (
+            <Button onClick={saveAll} className="bg-blue-600 hover:bg-blue-700 gap-2">
+              <Save className="h-4 w-4" />
+              Save All ({pendingCount} changes)
+            </Button>
+          )}
+        </div>
       </div>
 
       {/* Summary Bar */}
@@ -192,6 +253,7 @@ export default function ValidatePage() {
           />
         </div>
         <select
+          aria-label="Filter by department"
           className="px-4 py-2.5 rounded-lg border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={deptFilter || ""}
           onChange={e => setDeptFilter(e.target.value || null)}
@@ -251,6 +313,7 @@ export default function ValidatePage() {
 
                     {/* Department Select */}
                     <select
+                      aria-label="Change department"
                       className="px-2 py-1.5 rounded border text-xs bg-white focus:ring-2 focus:ring-blue-500 w-20"
                       value={currentDept}
                       onChange={e => handleDeptChange(doc.id, e.target.value)}
@@ -260,12 +323,26 @@ export default function ValidatePage() {
 
                     {/* Status Select */}
                     <select
+                      aria-label="Change status"
                       className={`px-2 py-1.5 rounded border text-xs font-medium focus:ring-2 focus:ring-blue-500 w-36 ${statusColors[currentStatus] || ""}`}
                       value={currentStatus}
                       onChange={e => handleStatusChange(doc.id, e.target.value)}
                     >
                       {statusOptions.map(s => <option key={s} value={s}>{s}</option>)}
                     </select>
+
+                    {/* Auto Map Button (for pending-mapping docs) */}
+                    {(doc.filename.toLowerCase().includes("pending") ||
+                      doc.systemNotes.toLowerCase().includes("pending") ||
+                      doc.status === "Pending Mapping") && !hasChange && (
+                      <Button size="sm" variant="ghost" onClick={() => autoMapOne(doc)}
+                        disabled={autoMapping === doc.id}
+                        className="text-purple-600 hover:bg-purple-50" title="Auto-map to department">
+                        {autoMapping === doc.id
+                          ? <RefreshCw className="h-4 w-4 animate-spin" />
+                          : <><Wand2 className="h-3.5 w-3.5 mr-1" /><span className="text-xs">Map</span></>}
+                      </Button>
+                    )}
 
                     {/* Save Button */}
                     {hasChange && (

@@ -1,8 +1,9 @@
 
-import ai from '../lib/ai';
+import { getAiClient } from '../lib/ai';
 
 async function testConnection() {
-    console.log("🤖 Testing connection to Local LM Studio...");
+    console.log("🤖 Testing connection to GitHub Models...");
+    const ai = getAiClient();
     try {
         const completion = await ai.chat.completions.create({
             messages: [{ role: "user", content: "Hello! Are you ready to validate policies?" }],
