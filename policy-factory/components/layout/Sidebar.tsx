@@ -11,16 +11,29 @@ import {
   Settings, 
   FileSearch,
   BookOpen,
-  PieChart
+  PieChart,
+  ClipboardCheck,
+  Sparkles,
+  Map,
+  CheckSquare,
+  MessageSquare,
+  Scale
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
   { name: "Document Library", href: "/library", icon: Library },
+  { name: "Validate Docs", href: "/validate", icon: CheckSquare },
+  { name: "Policy Request", href: "/request", icon: MessageSquare },
   { name: "Workflow Inbox", href: "/workflow", icon: GitPullRequest },
   { name: "Controls & KPIs", href: "/controls", icon: ShieldCheck },
   { name: "Gap Analysis", href: "/analysis", icon: FileSearch },
+  { name: "Maturity Dashboard", href: "/maturity", icon: PieChart },
+  { name: "Regulatory Guide", href: "/compliance/regulations", icon: Scale },
+  { name: "Document Audit", href: "/audit", icon: ClipboardCheck },
+  { name: "AI Generator", href: "/generator", icon: Sparkles },
+  { name: "2026 Roadmap", href: "/roadmap", icon: Map },
   { name: "Administration", href: "/admin", icon: Settings },
 ]
 

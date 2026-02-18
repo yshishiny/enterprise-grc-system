@@ -1,0 +1,18 @@
+{
+  "lastUpdated": "2026-02-18T12:34:15.868Z",
+  "obligations": [
+    {
+      "id": "EG-LAB-0001",
+      "department": "HR",
+      "law": "Egyptian Labor Law",
+      "summary": "What is required (plain language)",
+      "riskRating": "Low/Med/High",
+      "complianceStatus": "Not Started/In Progress/Compliant/Partially/Non-Compliant",
+      "requiredArtifacts": [
+        "HR-POL-007",
+        "HR-PROC-005",
+        "HR-FRM-012"
+      ]
+    }
+  ]
+}

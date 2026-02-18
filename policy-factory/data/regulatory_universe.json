@@ -1,0 +1,223 @@
+{
+  "lastUpdated": "2026-02-17",
+  "laws": [
+    {
+      "id": "LAW-141",
+      "title": "Microfinance Law No. 141 of 2014",
+      "category": "Core Business",
+      "description": "Regulates non-banking microfinance activities in Egypt.",
+      "articles": [
+        {
+          "article": "2",
+          "text": "Microfinance activity requires a license from the Financial Regulatory Authority (FRA). Only joint-stock companies or NGOs with special authorization may practice.",
+          "complianceStatus": "Implemented",
+          "relatedDocIds": ["REQ-GOV-001"]
+        },
+        {
+          "article": "5",
+          "text": "The minimum issued capital for microfinance companies shall not be less than 15 million EGP (as amended).",
+          "complianceStatus": "Implemented",
+          "relatedDocIds": ["REQ-FIN-001", "REQ-GOV-001"]
+        }
+      ]
+    },
+    {
+      "id": "DEC-173",
+      "title": "FRA Decision No. 173 of 2014 (Executive Regulations)",
+      "category": "Core Business",
+      "description": "Executive regulations detailing operational requirements for microfinance.",
+      "articles": [
+        {
+          "article": "15",
+          "text": "Maximum microfinance loan size shall not exceed 220,000 EGP (as amended by Decision 14/2021).",
+          "complianceStatus": "Implemented",
+          "relatedDocIds": ["REQ-OPS-001", "REQ-OPS-002", "COM-POL-001"]
+        },
+        {
+          "article": "18",
+          "text": "Companies must transparently disclose effective interest rates and all administrative fees to clients before contract signing.",
+          "complianceStatus": "Gap",
+          "relatedDocIds": ["REQ-OPS-001", "REQ-COMP-005"]
+        }
+      ]
+    },
+    {
+      "id": "DEC-139",
+      "title": "FRA Decision No. 139 of 2023 (Governance)",
+      "category": "Governance",
+      "description": "Regulates governance structures, board composition, and required committees.",
+      "articles": [
+        {
+          "article": "4",
+          "text": "The Board of Directors must include at least one Independent Non-Executive Director (INED) for every three members.",
+          "complianceStatus": "Implemented",
+          "relatedDocIds": ["REQ-GOV-001", "REQ-GOV-002", "GOV-POL-002"]
+        },
+        {
+          "article": "12",
+          "text": "Establishment of an Audit Committee is mandatory, chaired by a Non-Executive Director.",
+          "complianceStatus": "Implemented",
+          "relatedDocIds": ["REQ-AUDIT-001", "AUDIT-POL-001"]
+        },
+        {
+          "article": "15",
+          "text": "Establishment of a Risk Management Committee is mandatory to oversee enterprise risk appetite and framework.",
+          "complianceStatus": "Implemented",
+          "relatedDocIds": ["REQ-RISK-001", "REQ-RISK-003", "RISK-POL-003"]
+        },
+         {
+          "article": "23",
+          "text": "The company must appoint a dedicated Compliance Officer reporting administratively to CEO and functionally to the Audit Committee/Board.",
+          "complianceStatus": "Implemented",
+          "relatedDocIds": ["REQ-COMP-001", "COMP-POL-001"]
+        }
+      ]
+    },
+    {
+      "id": "DEC-140",
+      "title": "FRA Decision No. 140 (Solvency & Risk)",
+      "category": "Risk & Finance",
+      "description": "Determines capital adequacy, leverage ratios, and provisioning requirements.",
+      "articles": [
+        {
+          "article": "3",
+          "text": "Capital Adequacy Ratio (CAR) must be maintained at minimum 12% of risk-weighted assets.",
+          "complianceStatus": "Gap",
+          "relatedDocIds": ["REQ-RISK-001", "REQ-FIN-001"]
+        },
+        {
+          "article": "7",
+          "text": "Provisioning: 0% for current, 5% for 1-30 days past due, 20% for 31-60, 50% for 61-90, 100% for >90 days.",
+          "complianceStatus": "Implemented",
+          "relatedDocIds": ["REQ-FIN-002", "REQ-OPS-003"]
+        }
+      ]
+    },
+    {
+      "id": "LAW-12",
+      "title": "Egyptian Labor Law No. 12 of 2003",
+      "category": "Human Resources",
+      "description": "Governs employer-employee relationships, contracts, leaves, and termination.",
+      "articles": [
+        {
+          "article": "47",
+          "text": "Annual Leave: 21 days min, increasing to 30 days after 10 years of service or age 50.",
+          "complianceStatus": "Gap",
+          "relatedDocIds": ["REQ-HR-001"]
+        },
+        {
+          "article": "58",
+          "text": "Disciplinary Sanctions: Employers must have an approved list of sanctions. No penalty strictly allowed without investigation.",
+          "complianceStatus": "Gap",
+          "relatedDocIds": ["REQ-HR-004"]
+        },
+         {
+          "article": "80",
+          "text": "Overtime: 35% premium for day overtime, 70% for night overtime.",
+          "complianceStatus": "Gap",
+          "relatedDocIds": ["REQ-HR-001"]
+        }
+      ]
+    },
+    {
+      "id": "LAW-148",
+      "title": "Social Insurance Law No. 148 of 2019",
+      "category": "Human Resources",
+      "description": "Governs social security contributions and pensions.",
+      "articles": [
+        {
+          "article": "12",
+          "text": "Mandatory subscription for all employees. Contributions calculated on total wage up to the ceiling.",
+          "complianceStatus": "Gap",
+          "relatedDocIds": ["REQ-HR-001"]
+        }
+      ]
+    },
+    {
+      "id": "LAW-151",
+      "title": "Data Protection Law No. 151 of 2020",
+      "category": "Digital & Tech",
+      "description": "Regulates the collection, processing, and transfer of personal data.",
+      "articles": [
+        {
+          "article": "3",
+          "text": "Prohibition of processing personal data without explicit consent of the data subject.",
+          "complianceStatus": "Implemented",
+          "relatedDocIds": ["REQ-COMP-003", "IT-POL-009"]
+        },
+        {
+          "article": "4",
+          "text": "Data Subject Rights: Right to access, rectify, and erase personal data.",
+          "complianceStatus": "Implemented",
+          "relatedDocIds": ["REQ-COMP-003"]
+        },
+        {
+          "article": "14",
+          "text": "Cross-border data transfer requires a license and adequate protection level in the recipient country.",
+          "complianceStatus": "Gap",
+          "relatedDocIds": ["REQ-COMP-003", "REQ-IS-006"]
+        }
+      ]
+    },
+    {
+      "id": "DIG-LEND",
+      "title": "FRA Digital Lending Regulations (Decision 14/2021)",
+      "category": "Digital & Tech",
+      "description": "Regulates fintech and digital lending apps.",
+      "articles": [
+        {
+          "article": "2",
+          "text": "Digital lending platforms must use secure authentication (2FA) and E-KYC procedures approved by FRA.",
+          "complianceStatus": "Gap",
+          "relatedDocIds": ["REQ-IS-002", "REQ-OPS-002"]
+        },
+        {
+          "article": "5",
+          "text": "Cybersecurity Audit: Mandatory annual penetration testing and vulnerability assessment for digital platforms.",
+          "complianceStatus": "Implemented",
+          "relatedDocIds": ["REQ-IS-009", "IT-POL-014"]
+        },
+        {
+          "article": "8",
+          "text": "Electronic Contracts: Digital loan agreements signed via E-Signature have full legal validity.",
+          "complianceStatus": "Gap",
+          "relatedDocIds": ["REQ-OPS-002", "LAW-15"]
+        }
+      ]
+    },
+    {
+      "id": "LAW-15",
+      "title": "E-Signature Law No. 15 of 2004",
+      "category": "Digital & Tech",
+      "description": "Grants legal validity to electronic signatures and digital documents.",
+      "articles": [
+        {
+          "article": "14",
+          "text": "Electronic signatures have the same evidential weight as physical signatures if they meet ITIDA technical standards.",
+          "complianceStatus": "Gap",
+          "relatedDocIds": ["REQ-ITOPS-003"]
+        }
+      ]
+    },
+    {
+      "id": "LAW-91",
+      "title": "Income Tax Law No. 91 of 2005",
+      "category": "Finance",
+      "description": "Regulates corporate income tax and payroll taxes.",
+      "articles": [
+        {
+          "article": "49",
+          "text": "Corporate Tax Rate: 22.5% on net taxable profits.",
+          "complianceStatus": "Gap",
+          "relatedDocIds": ["REQ-FIN-001"]
+        },
+        {
+          "article": "56",
+          "text": "Withholding Tax: Applicable on services provided by non-residents.",
+          "complianceStatus": "Gap",
+          "relatedDocIds": ["REQ-FIN-001"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "registerMetadata": {
+    "name": "Shari Required Document Register",
+    "version": "1.0",
+    "lastUpdated": "2026-02-17",
+    "description": "Defines what 'complete' means — every required policy, procedure, and evidence by domain. Used to compute Coverage%, Approval%, Mapping%, Evidence% automatically.",
+    "scoringFormulas": {
+      "coveragePct": "(# required docs present) / (total required docs) × 100",
+      "approvalPct": "(# required docs with status=Approved) / (total required docs) × 100",
+      "mappingPct": "(# required docs mapped to ≥1 control) / (total required docs) × 100",
+      "evidenceReadinessPct": "(# controls with required evidence uploaded) / (total controls) × 100"
+    }
+  },
+  "domains": [
+    {
+      "domainId": "GOV",
+      "name": "Governance & Board",
+      "department": "BOD",
+      "requiredDocuments": [
+        {"docId":"REQ-GOV-001","title":"Corporate Governance Policy","type":"Policy","frameworks":["FRA-139","COBIT-EDM01","CBE"],"reviewCadence":"Annual","evidenceTypes":["Board minutes","Signed policy"],"priority":"Critical"},
+        {"docId":"REQ-GOV-002","title":"Board Charter","type":"Policy","frameworks":["FRA-139","CBE"],"reviewCadence":"Annual","evidenceTypes":["Signed charter"],"priority":"Critical"},
+        {"docId":"REQ-GOV-003","title":"Delegation of Authority Policy","type":"Policy","frameworks":["FRA-139","COBIT-EDM01"],"reviewCadence":"Annual","evidenceTypes":["Approval matrix"],"priority":"High"},
+        {"docId":"REQ-GOV-004","title":"Conflict of Interest Policy","type":"Policy","frameworks":["FRA-139","CBE"],"reviewCadence":"Annual","evidenceTypes":["Declaration forms"],"priority":"High"},
+        {"docId":"REQ-GOV-005","title":"Code of Ethics","type":"Policy","frameworks":["FRA-139"],"reviewCadence":"Annual","evidenceTypes":["Signed acknowledgments"],"priority":"High"}
+      ]
+    },
+    {
+      "domainId": "RISK",
+      "name": "Risk Management",
+      "department": "RISK",
+      "requiredDocuments": [
+        {"docId":"REQ-RISK-001","title":"Enterprise Risk Management Policy","type":"Policy","frameworks":["FRA-139","ISO-A.5.1","NIST-RA-1","COBIT-EDM03","CBE"],"reviewCadence":"Annual","evidenceTypes":["Risk register","Risk assessment reports"],"priority":"Critical"},
+        {"docId":"REQ-RISK-002","title":"Risk Assessment Procedure","type":"Procedure","frameworks":["ISO-A.5.1","NIST-RA-3","PCI-DSS"],"reviewCadence":"Annual","evidenceTypes":["Assessment templates","Completed assessments"],"priority":"High"},
+        {"docId":"REQ-RISK-003","title":"Risk Appetite Statement","type":"Policy","frameworks":["FRA-139","COBIT-EDM03","CBE"],"reviewCadence":"Annual","evidenceTypes":["Board-approved statement"],"priority":"Critical"},
+        {"docId":"REQ-RISK-004","title":"Business Impact Analysis Procedure","type":"Procedure","frameworks":["ISO-A.5.29","NIST-CP-2"],"reviewCadence":"Annual","evidenceTypes":["BIA report"],"priority":"High"},
+        {"docId":"REQ-RISK-005","title":"Third-Party Risk Management Procedure","type":"Procedure","frameworks":["ISO-A.5.19","NIST-SA-9","COBIT-APO10","PCI-DSS","CBE"],"reviewCadence":"Annual","evidenceTypes":["Vendor assessments"],"priority":"High"}
+      ]
+    },
+    {
+      "domainId": "COMP",
+      "name": "Compliance & Regulatory",
+      "department": "ADMIN",
+      "requiredDocuments": [
+        {"docId":"REQ-COMP-001","title":"Compliance Management Policy","type":"Policy","frameworks":["FRA-139","FRA-140","ISO-A.5.31","COBIT-MEA03","CBE"],"reviewCadence":"Quarterly","evidenceTypes":["Compliance register","FRA reports"],"priority":"Critical"},
+        {"docId":"REQ-COMP-002","title":"AML/CFT Policy","type":"Policy","frameworks":["FRA-139","FRA-AML","CBE"],"reviewCadence":"Annual","evidenceTypes":["Training records","STR logs"],"priority":"Critical"},
+        {"docId":"REQ-COMP-003","title":"Data Privacy Policy","type":"Policy","frameworks":["FRA-227","ISO-A.5.34","CBE"],"reviewCadence":"Annual","evidenceTypes":["Privacy impact assessments"],"priority":"High"},
+        {"docId":"REQ-COMP-004","title":"FRA Regulatory Reporting Procedure","type":"Procedure","frameworks":["FRA-139","FRA-140"],"reviewCadence":"Quarterly","evidenceTypes":["Submission records"],"priority":"Critical"},
+        {"docId":"REQ-COMP-005","title":"Complaints Management Procedure","type":"Procedure","frameworks":["FRA-139","CBE"],"reviewCadence":"Annual","evidenceTypes":["Complaints register"],"priority":"Medium"}
+      ]
+    },
+    {
+      "domainId": "IS",
+      "name": "Information Security",
+      "department": "IT",
+      "requiredDocuments": [
+        {"docId":"REQ-IS-001","title":"Information Security Policy","type":"Policy","frameworks":["ISO-A.5.1","NIST-PL-1","CIS-IG1","PCI-DSS","CBE"],"reviewCadence":"Annual","evidenceTypes":["Signed policy","Communication records"],"priority":"Critical"},
+        {"docId":"REQ-IS-002","title":"Access Control Policy","type":"Policy","frameworks":["ISO-A.5.15","NIST-AC-1","CIS-6","PCI-DSS","CBE"],"reviewCadence":"Annual","evidenceTypes":["Access matrix","Review records"],"priority":"Critical"},
+        {"docId":"REQ-IS-003","title":"User Access Management Procedure","type":"Procedure","frameworks":["ISO-A.5.16","NIST-AC-2","CIS-6.1","PCI-DSS"],"reviewCadence":"Semi-annual","evidenceTypes":["Provisioning logs","Review reports"],"priority":"High"},
+        {"docId":"REQ-IS-004","title":"Password & Authentication Standard","type":"Standard","frameworks":["ISO-A.8.5","NIST-IA-5","CIS-5.2","PCI-DSS"],"reviewCadence":"Annual","evidenceTypes":["GPO config screenshots"],"priority":"High"},
+        {"docId":"REQ-IS-005","title":"Incident Response Plan","type":"Procedure","frameworks":["ISO-A.5.24","NIST-IR-1","CIS-17","PCI-DSS","CBE"],"reviewCadence":"Annual","evidenceTypes":["IR plan","Tabletop records","Incident logs"],"priority":"Critical"},
+        {"docId":"REQ-IS-006","title":"Data Classification Policy","type":"Policy","frameworks":["ISO-A.5.12","NIST-RA-2","CIS-3.7","CBE"],"reviewCadence":"Annual","evidenceTypes":["Classification scheme"],"priority":"High"},
+        {"docId":"REQ-IS-007","title":"Encryption Standard","type":"Standard","frameworks":["ISO-A.8.24","NIST-SC-13","CIS-3.10","PCI-DSS"],"reviewCadence":"Annual","evidenceTypes":["TLS config","Key mgmt procedure"],"priority":"High"},
+        {"docId":"REQ-IS-008","title":"Network Security Policy","type":"Policy","frameworks":["ISO-A.8.20","NIST-SC-7","CIS-4","CIS-12","PCI-DSS","CBE"],"reviewCadence":"Annual","evidenceTypes":["Network diagrams","Firewall rules"],"priority":"High"},
+        {"docId":"REQ-IS-009","title":"Vulnerability Management Procedure","type":"Procedure","frameworks":["ISO-A.8.8","NIST-RA-5","CIS-7","PCI-DSS","CBE"],"reviewCadence":"Quarterly","evidenceTypes":["Scan reports","Patch logs"],"priority":"High"},
+        {"docId":"REQ-IS-010","title":"Backup & Recovery Procedure","type":"Procedure","frameworks":["ISO-A.8.13","NIST-CP-9","CIS-11","PCI-DSS","CBE"],"reviewCadence":"Annual","evidenceTypes":["Backup logs","Recovery test reports"],"priority":"Critical"},
+        {"docId":"REQ-IS-011","title":"Change Management Procedure","type":"Procedure","frameworks":["ISO-A.8.32","NIST-CM-3","CIS-4.1","PCI-DSS","CBE"],"reviewCadence":"Annual","evidenceTypes":["CAB minutes","Change tickets"],"priority":"High"},
+        {"docId":"REQ-IS-012","title":"Endpoint Protection Standard","type":"Standard","frameworks":["ISO-A.8.7","NIST-SI-3","CIS-10","PCI-DSS"],"reviewCadence":"Annual","evidenceTypes":["EPP dashboard","Coverage report"],"priority":"High"},
+        {"docId":"REQ-IS-013","title":"Security Awareness Training Procedure","type":"Procedure","frameworks":["ISO-A.6.3","NIST-AT-2","CIS-14","PCI-DSS"],"reviewCadence":"Annual","evidenceTypes":["Training records","Phishing results"],"priority":"High"},
+        {"docId":"REQ-IS-014","title":"Logging & Monitoring Standard","type":"Standard","frameworks":["ISO-A.8.15","NIST-AU-2","CIS-8","PCI-DSS","CBE"],"reviewCadence":"Annual","evidenceTypes":["SIEM config","Log source inventory"],"priority":"High"},
+        {"docId":"REQ-IS-015","title":"Mobile Device & Remote Working Policy","type":"Policy","frameworks":["ISO-A.6.7","NIST-AC-17","PCI-DSS"],"reviewCadence":"Annual","evidenceTypes":["VPN logs","Device register"],"priority":"Medium"}
+      ]
+    },
+    {
+      "domainId": "ITOPS",
+      "name": "IT Operations",
+      "department": "IT",
+      "requiredDocuments": [
+        {"docId":"REQ-ITOPS-001","title":"IT Asset Management Procedure","type":"Procedure","frameworks":["ISO-A.5.9","NIST-CM-8","CIS-1","CIS-2","CBE"],"reviewCadence":"Quarterly","evidenceTypes":["Asset register","Discovery scans"],"priority":"High"},
+        {"docId":"REQ-ITOPS-002","title":"Patch Management Procedure","type":"Procedure","frameworks":["ISO-A.8.8","NIST-SI-2","CIS-7.3","PCI-DSS"],"reviewCadence":"Monthly","evidenceTypes":["Patch reports","WSUS dashboard"],"priority":"High"},
+        {"docId":"REQ-ITOPS-003","title":"Server Hardening Standard","type":"Standard","frameworks":["ISO-A.8.9","NIST-CM-6","CIS-4.8","PCI-DSS"],"reviewCadence":"Quarterly","evidenceTypes":["CIS benchmark scans"],"priority":"High"},
+        {"docId":"REQ-ITOPS-004","title":"IT Service Continuity Plan","type":"Procedure","frameworks":["ISO-A.5.30","NIST-CP-4","CIS-11.4","CBE"],"reviewCadence":"Annual","evidenceTypes":["DR plan","DR test results"],"priority":"Critical"},
+        {"docId":"REQ-ITOPS-005","title":"Capacity Management Procedure","type":"Procedure","frameworks":["ISO-A.8.6","NIST-CP-2"],"reviewCadence":"Quarterly","evidenceTypes":["Utilization reports"],"priority":"Medium"}
+      ]
+    },
+    {
+      "domainId": "HR",
+      "name": "Human Resources",
+      "department": "HR",
+      "requiredDocuments": [
+        {"docId":"REQ-HR-001","title":"HR Policy Manual","type":"Policy","frameworks":["FRA-139","CBE"],"reviewCadence":"Annual","evidenceTypes":["Signed policy"],"priority":"Critical"},
+        {"docId":"REQ-HR-002","title":"Pre-Employment Screening Procedure","type":"Procedure","frameworks":["ISO-A.6.1","NIST-PS-3","PCI-DSS"],"reviewCadence":"Annual","evidenceTypes":["Background check records"],"priority":"High"},
+        {"docId":"REQ-HR-003","title":"Onboarding / Offboarding Procedure","type":"Procedure","frameworks":["ISO-A.6.5","NIST-PS-4","PCI-DSS"],"reviewCadence":"Annual","evidenceTypes":["JML tickets","Checklist completion"],"priority":"High"},
+        {"docId":"REQ-HR-004","title":"Disciplinary Procedure","type":"Procedure","frameworks":["ISO-A.6.4","NIST-PS-8"],"reviewCadence":"Annual","evidenceTypes":["Investigation records"],"priority":"Medium"},
+        {"docId":"REQ-HR-005","title":"NDA / Confidentiality Agreement Template","type":"Form","frameworks":["ISO-A.6.2","NIST-PS-6","CBE"],"reviewCadence":"Per hire","evidenceTypes":["Signed NDAs"],"priority":"High"}
+      ]
+    },
+    {
+      "domainId": "OPS",
+      "name": "Operations & Lending",
+      "department": "OPS",
+      "requiredDocuments": [
+        {"docId":"REQ-OPS-001","title":"Credit Policy","type":"Policy","frameworks":["FRA-139","FRA-140","CBE"],"reviewCadence":"Annual","evidenceTypes":["Board-approved policy"],"priority":"Critical"},
+        {"docId":"REQ-OPS-002","title":"Loan Origination Procedure","type":"Procedure","frameworks":["FRA-139","CBE"],"reviewCadence":"Annual","evidenceTypes":["Process maps","Approval records"],"priority":"Critical"},
+        {"docId":"REQ-OPS-003","title":"Collection Procedure","type":"Procedure","frameworks":["FRA-139"],"reviewCadence":"Annual","evidenceTypes":["Collection logs"],"priority":"High"},
+        {"docId":"REQ-OPS-004","title":"Branch Operations Manual","type":"Guideline","frameworks":["FRA-139"],"reviewCadence":"Annual","evidenceTypes":["Signed acknowledgment"],"priority":"High"},
+        {"docId":"REQ-OPS-005","title":"Cash Handling Procedure","type":"Procedure","frameworks":["FRA-139"],"reviewCadence":"Annual","evidenceTypes":["Cash count logs"],"priority":"High"}
+      ]
+    },
+    {
+      "domainId": "FIN",
+      "name": "Finance & Accounting",
+      "department": "OPS",
+      "requiredDocuments": [
+        {"docId":"REQ-FIN-001","title":"Financial Reporting Policy","type":"Policy","frameworks":["FRA-139","FRA-140","CBE"],"reviewCadence":"Annual","evidenceTypes":["Board-approved statements"],"priority":"Critical"},
+        {"docId":"REQ-FIN-002","title":"Provisioning Policy","type":"Policy","frameworks":["FRA-139","CBE"],"reviewCadence":"Annual","evidenceTypes":["Provision calculations"],"priority":"Critical"},
+        {"docId":"REQ-FIN-003","title":"Treasury Management Procedure","type":"Procedure","frameworks":["FRA-139"],"reviewCadence":"Annual","evidenceTypes":["Cash flow reports"],"priority":"High"}
+      ]
+    },
+    {
+      "domainId": "AUDIT",
+      "name": "Internal Audit",
+      "department": "AUDIT",
+      "requiredDocuments": [
+        {"docId":"REQ-AUDIT-001","title":"Internal Audit Charter","type":"Policy","frameworks":["FRA-139","COBIT-MEA02","CBE"],"reviewCadence":"Annual","evidenceTypes":["Board-approved charter"],"priority":"Critical"},
+        {"docId":"REQ-AUDIT-002","title":"Annual Audit Plan","type":"Procedure","frameworks":["FRA-139","COBIT-MEA02","CBE"],"reviewCadence":"Annual","evidenceTypes":["Approved plan"],"priority":"Critical"},
+        {"docId":"REQ-AUDIT-003","title":"Audit Reporting Procedure","type":"Procedure","frameworks":["FRA-139","CBE"],"reviewCadence":"Annual","evidenceTypes":["Audit reports","Finding tracker"],"priority":"High"}
+      ]
+    },
+    {
+      "domainId": "PHY",
+      "name": "Physical & Environmental Security",
+      "department": "ADMIN",
+      "requiredDocuments": [
+        {"docId":"REQ-PHY-001","title":"Physical Security Policy","type":"Policy","frameworks":["ISO-A.7.1","NIST-PE-2","PCI-DSS","CBE"],"reviewCadence":"Annual","evidenceTypes":["Access logs","CCTV records"],"priority":"High"},
+        {"docId":"REQ-PHY-002","title":"Environmental Controls Procedure","type":"Procedure","frameworks":["ISO-A.7.5","NIST-PE-14"],"reviewCadence":"Annual","evidenceTypes":["UPS test logs","Temperature logs"],"priority":"Medium"},
+        {"docId":"REQ-PHY-003","title":"Clear Desk & Clear Screen Procedure","type":"Procedure","frameworks":["ISO-A.7.7","NIST-MP-2","PCI-DSS"],"reviewCadence":"Annual","evidenceTypes":["Walk-through checks"],"priority":"Medium"}
+      ]
+    },
+    {
+      "domainId": "BCP",
+      "name": "Business Continuity",
+      "department": "RISK",
+      "requiredDocuments": [
+        {"docId":"REQ-BCP-001","title":"Business Continuity Policy","type":"Policy","frameworks":["ISO-A.5.29","NIST-CP-1","COBIT-DSS04","CBE"],"reviewCadence":"Annual","evidenceTypes":["BCP document","BIA report"],"priority":"Critical"},
+        {"docId":"REQ-BCP-002","title":"Disaster Recovery Plan","type":"Procedure","frameworks":["ISO-A.5.30","NIST-CP-4","PCI-DSS","CBE"],"reviewCadence":"Annual","evidenceTypes":["DR plan","DR test reports"],"priority":"Critical"},
+        {"docId":"REQ-BCP-003","title":"Crisis Communication Plan","type":"Procedure","frameworks":["ISO-A.5.24","NIST-IR-7","CBE"],"reviewCadence":"Annual","evidenceTypes":["Contact tree","Exercise records"],"priority":"High"}
+      ]
+    }
+  ],
+  "summary": {
+    "totalDomains": 11,
+    "totalRequiredDocuments": 68,
+    "byType": {"Policy": 27, "Procedure": 31, "Standard": 5, "Guideline": 1, "Form": 1},
+    "byPriority": {"Critical": 22, "High": 38, "Medium": 8},
+    "note": "This register defines the minimum viable document set for FRA compliance + ISO 27001:2022 + NIST 800-53 + COBIT 2019 + CIS Controls coverage."
+  }
+}

@@ -69,6 +69,27 @@
       "implementedControls": 58,
       "completionPct": 62,
       "maturityLevel": 3.1
+    },
+    {
+      "code": "PCI-DSS",
+      "name": "PCI DSS v4.0",
+      "description": "Payment Card Industry Data Security Standard",
+      "version": "4.0",
+      "totalControls": 12,
+      "implementedControls": 0,
+      "completionPct": 0,
+      "maturityLevel": 0
+    },
+    {
+      "code": "CBE",
+      "name": "CBE Cybersecurity Framework",
+      "description": "Central Bank of Egypt Cybersecurity Regulations for Non-Banking Financial Institutions",
+      "version": "2023",
+      "domains": ["Governance", "Risk", "Operations", "Technology"],
+      "totalControls": 50,
+      "implementedControls": 0,
+      "completionPct": 0,
+      "maturityLevel": 0
     }
   ]
 }

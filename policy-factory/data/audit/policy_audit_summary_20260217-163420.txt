@@ -1,0 +1,33 @@
+﻿Root: C:\Users\YasserElshishiny\Nextcloud\Policies & Procedures
+OldDays threshold: 365 (Older than 02/17/2025 16:34:20 considered Old if not otherwise classified)
+Total documents: 60
+
+=== Overall Status Summary ===
+
+Status   Count Percent
+------   ----- -------
+Approved     3 5%     
+Draft        7 11.67% 
+Unknown     50 83.33% 
+
+
+
+
+=== Top Folder Breakdown (Counts) ===
+
+TopFolder                                              Status   Count
+---------                                              ------   -----
+Approved Procedures                                    Approved     3
+Credit policy                                          Unknown      2
+HR                                                     Draft        7
+IT & IS policies and procedures                        Unknown     31
+Shari Establishment  policies -                        Unknown     13
+سياسة المشتريات بعد اعتمادها من العضو المنتدب 2024.pdf Unknown      1
+مسودة سياسة العهد.docx                                 Unknown      1
+مسودة سياسةالسفر والانتقالات والبدلات.docx             Unknown      1
+مسودة لائحة الشؤون القانونية الجديدة 2025.docx         Unknown      1
+
+
+
+
+CSV Report: .\data\audit\policy_audit_20260217-163420.csv

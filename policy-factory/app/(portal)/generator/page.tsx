@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge} from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -24,6 +24,7 @@ import {
   CheckCircle2
 } from "lucide-react"
 import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 
 const categories = [
   { value: "Governance & Board", label: "Governance & Board", code: "GOV" },
@@ -46,7 +47,7 @@ const frameworks = [
   { id: "ISO 27001", name: "ISO 27001:2022", icon: "📋" }
 ]
 
-export default function GeneratorPage() {
+function GeneratorContent() {
   const [step, setStep] = useState(1)
   const [category, setCategory] = useState("")
   const [title, setTitle] = useState("")
@@ -56,6 +57,23 @@ export default function GeneratorPage() {
   const [isGenerating, setIsGenerating] = useState(false)
   const [generatedPolicy, setGeneratedPolicy] = useState("")
   const [copied, setCopied] = useState(false)
+
+  const searchParams = useSearchParams()
+
+  useEffect(() => {
+    const template = searchParams.get('template')
+    const focus = searchParams.get('focus')
+
+    if (template) {
+      setTitle(`Policy for ${template}`)
+      setDescription(`Drafting a policy to satisfy the requirements of control ${template}. Focus on defining roles, responsibilities, and enforcement mechanisms.`)
+    }
+
+    if (focus) {
+      const fw = frameworks.find(f => f.id.includes(focus) || f.name.includes(focus))
+      if (fw) setSelectedFrameworks([fw.id])
+    }
+  }, [searchParams])
 
   const handleGenerate = async () => {
     setIsGenerating(true)
@@ -382,5 +400,13 @@ export default function GeneratorPage() {
         </Card>
       )}
     </div>
+  )
+}
+
+export default function GeneratorPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><Loader2 className="h-8 w-8 animate-spin text-shari-purple-600" /></div>}>
+      <GeneratorContent />
+    </Suspense>
   )
 }
