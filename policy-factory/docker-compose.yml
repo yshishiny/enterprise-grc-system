@@ -11,6 +11,8 @@ services:
     environment:
       - NODE_ENV=production
       - DATABASE_URL=file:./data/dev.db
+      - LM_STUDIO_URL=${LM_STUDIO_URL:-http://host.docker.internal:1234}
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
     volumes:
       - grc-data:/app/data
     restart: unless-stopped

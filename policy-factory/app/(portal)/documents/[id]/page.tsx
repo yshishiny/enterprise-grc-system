@@ -9,6 +9,7 @@ import {
   Sparkles, Globe, Shield, RefreshCw, Send, FileText 
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Textarea } from "@/components/ui/textarea"
@@ -43,14 +44,20 @@ function ValidatorContent() {
       .finally(() => setLoading(false))
   }, [docId])
 
-  const runAiAnalysis = async (type: "proof" | "trans" | "check") => {
+  const [currentAnalysisType, setCurrentAnalysisType] = useState<string | null>(null)
+
+  const runAiAnalysis = async (type: "proof" | "trans" | "check" | "content" | "def" | "struct") => {
     setAnalyzing(true)
     setAiAnalysis(null)
+    setCurrentAnalysisType(type)
     
     let prompt = "";
     if (type === "proof") prompt = `Suggest concrete evidence proofs for the policy: "${doc.title}". List 3 items.`
     if (type === "trans") prompt = `Translate this policy title to Arabic: "${doc.title}"`
     if (type === "check") prompt = `Does the policy "${doc.title}" generally align with ISO 27001 controls? Briefly explain.`
+    if (type === "def") prompt = `Provide a clear, standard definition and purpose for a "${doc.title}". Explain why it is important for the ${doc.department} department.`
+    if (type === "struct") prompt = `Outline the standard mandatory structure/table of contents for a "${doc.type}" document named "${doc.title}". Include all standard sections (e.g., Purpose, Scope, Definitions, Policy Statements, Roles, etc.) and a brief template.`
+    if (type === "content") prompt = `Write a comprehensive content simulation for the "${doc.title}" (${doc.type}) for ${doc.department}. IMPORTANT: You MUST follow this standard structure: 1. Purpose 2. Scope 3. Definitions 4. Core Policy Statements 5. Roles & Responsibilities 6. Compliance/References. Content should be professional, standard-aligned, and ready for review.`
 
     try {
       const res = await fetch("/api/ai", {
@@ -138,26 +145,98 @@ function ValidatorContent() {
             </CardContent>
           </Card>
 
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <MessageSquare className="h-4 w-4" />
-                {isAr ? "الملاحظات والتعليقات" : "Comments & Feedback"}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex gap-2">
-                <Textarea 
-                  placeholder={isAr ? "أضف ملاحظة للمراجع..." : "Add a note for the reviewer..."} 
-                  value={comment}
-                  onChange={e => setComment(e.target.value)}
-                />
-                <Button variant="ghost" size="icon" onClick={() => setComment("")}>
-                  <Send className="h-4 w-4" />
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+          <Tabs defaultValue="guide" className="w-full">
+            <TabsList className="grid w-full grid-cols-3">
+              <TabsTrigger value="guide">{isAr ? "الدليل والمعايير" : "Guidance & Standards"}</TabsTrigger>
+              <TabsTrigger value="content">{isAr ? "محتوى الوثيقة" : "Document Content"}</TabsTrigger>
+              <TabsTrigger value="comments">{isAr ? "الملاحظات" : "Comments & Feedback"}</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="guide">
+              <Card>
+                <CardHeader>
+                  <CardTitle>{isAr ? "دليل المعايير القياسية" : "Standardization Guide"}</CardTitle>
+                  <CardDescription>{isAr ? "افهم الغرض والهيكل المطلوب لهذا النوع من الوثائق." : "Understand the purpose and required structure for this document type."}</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex gap-2">
+                    <Button variant="outline" className="flex-1" onClick={() => runAiAnalysis('def')} disabled={analyzing}>
+                      <Globe className="h-4 w-4 mr-2 text-blue-500" />
+                      {isAr ? "التعريف والغرض" : "Definition & Purpose"}
+                    </Button>
+                    <Button variant="outline" className="flex-1" onClick={() => runAiAnalysis('struct')} disabled={analyzing}>
+                      <FileText className="h-4 w-4 mr-2 text-green-500" />
+                      {isAr ? "الهيكل القياسي" : "Standard Structure"}
+                    </Button>
+                  </div>
+
+                  {aiAnalysis && (currentAnalysisType === 'def' || currentAnalysisType === 'struct') ? (
+                    <div className="p-4 bg-slate-50 rounded-lg border text-sm text-slate-700 whitespace-pre-wrap font-serif leading-relaxed animate-in fade-in">
+                       {aiAnalysis}
+                    </div>
+                  ) : (
+                    <div className="p-8 text-center text-muted-foreground border-2 border-dashed rounded-lg">
+                      <Shield className="h-8 w-8 mx-auto mb-2 opacity-20" />
+                      <p className="text-sm">{isAr ? "اضغط لإنشاء دليل." : "Select an option above to generate guidance."}</p>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="content">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center justify-between">
+                    <span>{isAr ? "معاينة المحتوى" : "Content Preview"}</span>
+                    <Button variant="outline" size="sm" onClick={() => runAiAnalysis('content')} disabled={analyzing}>
+                       <Sparkles className="h-4 w-4 mr-2 text-purple-500" />
+                       {isAr ? "توليد المحتوى بالذكاء الاصطناعي" : "Generate Simulation"}
+                    </Button>
+                  </CardTitle>
+                  <CardDescription>
+                    {isAr ? "لا يمكن عرض الملف الأصلي. يمكنك استخدام الذكاء الاصطناعي لمحاكاة المحتوى بناءً على العنوان." : "Original file not accessible in this view. Use AI to simulate content based on title for review."}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  {aiAnalysis && currentAnalysisType === 'content' ? (
+                       <div className="p-4 bg-slate-50 rounded-lg border text-sm text-slate-700 whitespace-pre-wrap font-serif leading-relaxed">
+                         {aiAnalysis}
+                       </div>
+                  ) : (
+                    <div className="text-center py-12 text-slate-400">
+                      <FileText className="h-12 w-12 mx-auto mb-3 opacity-20" />
+                      <p>{isAr ? "لم يتم توليد أي محتوى عرض." : "No content preview available."}</p>
+                      <Button variant="link" onClick={() => runAiAnalysis('content')}>{isAr ? "اضغط هنا للمحاكاة" : "Click to simulate content"}</Button>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="comments">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <MessageSquare className="h-4 w-4" />
+                    {isAr ? "الملاحظات والتعليقات" : "Comments & Feedback"}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex gap-2">
+                    <Textarea 
+                      placeholder={isAr ? "أضف ملاحظة للمراجع..." : "Add a note for the reviewer..."} 
+                      value={comment}
+                      onChange={e => setComment(e.target.value)}
+                    />
+                    <Button variant="ghost" size="icon" onClick={() => setComment("")}>
+                      <Send className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          </Tabs>
         </div>
 
         <div className="col-span-1 space-y-6">

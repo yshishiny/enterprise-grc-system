@@ -43,11 +43,185 @@ function saveRegistry(data: any) {
   fs.writeFileSync(REGISTRY_PATH, JSON.stringify(data, null, 2), 'utf-8');
 }
 
-export async function GET() {
+// ═══════════════════════════════════════════════════════════════
+// Auto-Map Engine — parses ID prefix & title to assign dept/type
+// ═══════════════════════════════════════════════════════════════
+
+const DEPT_PREFIX_MAP: Record<string, string> = {
+  'IT': 'IT', 'HR': 'HR', 'FIN': 'FINANCE', 'AML': 'AML', 'AUD': 'AUDIT',
+  'RISK': 'RISK', 'BOD': 'BOD', 'COM': 'COM', 'OPS': 'OPERATIONS',
+  'ADM': 'ADMIN', 'GEN': 'GEN', 'AUDIT': 'AUDIT', 'FINANCE': 'FINANCE',
+};
+
+const TYPE_PREFIX_MAP: Record<string, string> = {
+  'POL': 'policy', 'PRO': 'procedure', 'SOP': 'sop', 'TMP': 'template',
+  'STD': 'standard', 'FRM': 'form', 'REG': 'register', 'DOC': 'doc',
+  'CHR': 'charter', 'MAN': 'manual', 'GUI': 'guideline',
+};
+
+const TITLE_DEPT_KEYWORDS: [RegExp, string][] = [
+  [/\b(audit|internal audit|auditing)\b/i, 'AUDIT'],
+  [/\b(finance|financial|treasury|accounting|tax)\b/i, 'FINANCE'],
+  [/\b(aml|anti.?money|cft|sanction|suspicious)\b/i, 'AML'],
+  [/\b(risk|ERM|enterprise risk)\b/i, 'RISK'],
+  [/\b(board|BOD|director|committee|charter|governance)\b/i, 'BOD'],
+  [/\b(commercial|credit|lending|loan|pricing|customer)\b/i, 'COM'],
+  [/\b(cyber|security|IT|network|database|email|access control|information.?security|vulnerabilit)\b/i, 'IT'],
+  [/\b(HR|human.?resource|employee|recruitment|leave|payroll|labor|staff|training|onboard|offboard|discipline|griev|equal.?opportunit)\b/i, 'HR'],
+  [/\b(operation|branch|SOP|operational)\b/i, 'OPERATIONS'],
+];
+
+const TITLE_TYPE_KEYWORDS: [RegExp, string][] = [
+  [/\bpolic(y|ies)\b/i, 'policy'],
+  [/\bprocedure\b/i, 'procedure'],
+  [/\b(SOP|standard.?operating)\b/i, 'sop'],
+  [/\btemplate\b/i, 'template'],
+  [/\bcharter\b/i, 'charter'],
+  [/\bmanual\b/i, 'manual'],
+  [/\bguideline\b/i, 'guideline'],
+  [/\bregister\b/i, 'register'],
+  [/\bstandard\b/i, 'standard'],
+  [/\bform\b/i, 'form'],
+];
+
+function autoMapDocuments(registry: any): boolean {
+  let dirty = false;
+  const counters: Record<string, Record<string, number>> = {};
+
+  for (const doc of registry.documents) {
+    const id = (doc.id || '').toUpperCase();
+    const title = doc.title || doc.filename || '';
+    let changed = false;
+
+    // ─── 1. Parse ID prefix for department: e.g. "POL-IT-000" → dept=IT, type=policy
+    // Patterns: TYPE-DEPT-NNN  or  DEPT-TYPE-NNN
+    const parts = id.split('-');
+    if (parts.length >= 2) {
+      const p0 = parts[0];
+      const p1 = parts[1];
+      
+      // Pattern: TYPE-DEPT-NNN  (e.g. POL-IT-000)
+      if (TYPE_PREFIX_MAP[p0] && DEPT_PREFIX_MAP[p1]) {
+        const mappedDept = DEPT_PREFIX_MAP[p1];
+        const mappedType = TYPE_PREFIX_MAP[p0];
+        if (doc.department !== mappedDept || !['policy','procedure','sop','template','standard','form','register','charter','manual','guideline'].includes(doc.type)) {
+          doc.department = mappedDept;
+          doc.type = mappedType;
+          changed = true;
+        }
+      }
+      // Pattern: DEPT-TYPE-NNN  (e.g. AUD-PRO-003)
+      else if (DEPT_PREFIX_MAP[p0] && TYPE_PREFIX_MAP[p1]) {
+        const mappedDept = DEPT_PREFIX_MAP[p0];
+        const mappedType = TYPE_PREFIX_MAP[p1];
+        if (doc.department !== mappedDept || !['policy','procedure','sop','template','standard','form','register','charter','manual','guideline'].includes(doc.type)) {
+          doc.department = mappedDept;
+          doc.type = mappedType;
+          changed = true;
+        }
+      }
+    }
+
+    // ─── 2. If still GEN or generic, try title keyword matching for department
+    if (doc.department === 'GEN' || !doc.department) {
+      for (const [regex, dept] of TITLE_DEPT_KEYWORDS) {
+        if (regex.test(title)) {
+          doc.department = dept;
+          changed = true;
+          break;
+        }
+      }
+    }
+
+    // ─── 3. If type is still generic (doc, pol, pro), try title keyword matching for type
+    if (!doc.type || doc.type === 'doc' || doc.type === 'pol' || doc.type === 'pro') {
+      for (const [regex, type] of TITLE_TYPE_KEYWORDS) {
+        if (regex.test(title)) {
+          doc.type = type;
+          changed = true;
+          break;
+        }
+      }
+    }
+
+    // ─── 4. Generate proper ID from naming convention if still generic
+    if (doc.id === 'DOC-GEN-000' || !doc.id || doc.id.endsWith('-000')) {
+      const dept = doc.department || 'GEN';
+      const typeCode = Object.entries(TYPE_PREFIX_MAP).find(([, v]) => v === doc.type)?.[0] || 'DOC';
+      
+      // Track counter per dept-type combination
+      const key = `${typeCode}-${dept}`;
+      counters[key] = counters[key] || {};
+      counters[key].n = (counters[key].n || 0) + 1;
+      const num = String(counters[key].n).padStart(3, '0');
+      doc.id = `${typeCode}-${dept}-${num}`;
+      changed = true;
+    }
+
+    if (changed) dirty = true;
+  }
+
+  return dirty;
+}
+
+export async function GET(request: NextRequest) {
   try {
+    // Check for preview action
+    const { searchParams } = new URL(request.url);
+    const action = searchParams.get('action');
+
+    if (action === 'preview') {
+      const folder = searchParams.get('folder') || '';
+      const filename = searchParams.get('filename') || '';
+
+      if (!filename) {
+        return NextResponse.json({ success: false, error: 'filename is required' }, { status: 400 });
+      }
+
+      // Only allow safe file extensions for preview
+      const allowedExts = ['.md', '.txt', '.json', '.csv'];
+      const ext = path.extname(filename).toLowerCase();
+      if (!allowedExts.includes(ext)) {
+        return NextResponse.json({
+          success: true,
+          content: null,
+          message: `Preview not available for ${ext} files. Open the file externally to view.`
+        });
+      }
+
+      // Search possible locations for the file
+      const searchPaths = [
+        path.join(process.cwd(), folder, filename),
+        path.join(process.cwd(), 'data', folder, filename),
+        path.join(process.cwd(), '_POLICY_FACTORY_SYSTEM', folder, filename),
+        path.join(process.cwd(), '_POLICY_FACTORY_SYSTEM', 'SHARI', folder, filename),
+      ];
+
+      for (const fpath of searchPaths) {
+        // Prevent path traversal
+        if (!fpath.startsWith(process.cwd())) continue;
+        try {
+          if (fs.existsSync(fpath)) {
+            const content = fs.readFileSync(fpath, 'utf-8');
+            return NextResponse.json({ success: true, content, path: fpath });
+          }
+        } catch { /* skip */ }
+      }
+
+      return NextResponse.json({ success: true, content: null, message: 'File not found in expected locations' });
+    }
+
     const registry = loadRegistry();
     const frameworksConfig = loadFrameworks();
     const controlLib = loadControlLibrary();
+
+    // Auto-map documents based on naming conventions (persists if changed)
+    const wasModified = autoMapDocuments(registry);
+    if (wasModified) {
+      registry.lastUpdated = new Date().toISOString();
+      saveRegistry(registry);
+    }
+
     const docs = registry.documents;
 
     // Compute per-department metrics
@@ -286,7 +460,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: false, error: 'documentId and status are required' }, { status: 400 });
     }
 
-    const validStatuses = ['Approved', 'Draft', 'Under Review', 'Enhancement Needed'];
+    const validStatuses = ['Approved', 'Draft', 'Under Review', 'Enhancement Needed', 'Missing', 'Pending Mapping', 'DRAFT (Template)'];
     if (!validStatuses.includes(status)) {
       return NextResponse.json({ success: false, error: `Invalid status. Must be one of: ${validStatuses.join(', ')}` }, { status: 400 });
     }

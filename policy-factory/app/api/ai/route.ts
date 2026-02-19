@@ -1,6 +1,6 @@
 
 import { NextResponse } from 'next/server';
-import { getAiClient } from '@/lib/ai';
+import { getSmartAiClient } from '@/lib/ai';
 
 export const dynamic = 'force-dynamic';
 
@@ -9,7 +9,7 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { prompt, system } = body;
 
-    const ai = getAiClient();
+    const ai = await getSmartAiClient();
     const completion = await ai.chat.completions.create({
       messages: [
         { role: "system", content: system || "You are an expert GRC consultant for Shari Microfinance." },
@@ -26,7 +26,7 @@ export async function POST(req: Request) {
   } catch (error: any) {
     console.error("AI Error:", error);
     return NextResponse.json(
-      { success: false, error: "Failed to connect to AI service. Ensure LM Studio is running." },
+      { success: false, error: "Failed to connect to AI service. Check LM Studio or GitHub Models." },
       { status: 500 }
     );
   }

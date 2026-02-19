@@ -142,6 +142,10 @@ PORT=3000
 # Security (for production)
 NEXTAUTH_SECRET=your-secret-here
 NEXTAUTH_URL=https://your-domain.com
+
+# AI Integation
+LM_STUDIO_URL=http://host.docker.internal:1234
+GITHUB_TOKEN=your-github-token-here
 ```
 
 ---
